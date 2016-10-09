@@ -1,0 +1,78 @@
+﻿<Window x:Class="OsgiDllTool.MainWindow" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:control="clr-namespace:OsgiDllTool.Control"
+        xmlns:model2="clr-namespace:OsgiDllTool.Model"
+        xmlns:view2="clr-namespace:OsgiDllTool.View"
+        Title="OSGI复制Dll工具"
+        Background="SkyBlue">
+    <Window.Resources>
+        <Style TargetType="ListBox">
+            <Setter Property="BorderBrush" Value="Gainsboro"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+        </Style>
+        <Style TargetType="TreeView">
+            <Setter Property="BorderBrush" Value="Gainsboro"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+        </Style>
+        <HierarchicalDataTemplate DataType="{x:Type model2:Project}" ItemsSource="{Binding Bundles}">
+            <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                <Image  Source="/OsgiDllTool;Component/Images/Project.png" Width="20" Height="20" />
+                <control:EditableTextBlock  VerticalAlignment="Center" 
+                                                      MouseDoubleClick="Control_OnMouseDoubleClick"
+                                                      Margin="2 0 2 0" Text="{Binding Name,Mode=TwoWay}" ToolTip="{Binding Name}" Tag="{Binding}"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <DataTemplate DataType="{x:Type model2:BundleInfo}">
+            <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                <Image Source="/OsgiDllTool;Component/Images/BundleInfor.png" Width="20" Height="20" />
+                <TextBlock VerticalAlignment="Center" Margin="2 0 2 0"  Text="{Binding AssemblyNamePath.Name}" ToolTip="{Binding AssemblyNamePath.Name}" Tag="{Binding}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DockPanel LastChildFill="False" Grid.Row="0" Grid.ColumnSpan="3">
+            <Button Margin="5"  x:Name="btnNewProject" Click="BtnNewProject_OnClick">
+                <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                    <Image  Source="/OsgiDllTool;Component/Images/Project.png" Width="24" Height="24" />
+                    <TextBlock VerticalAlignment="Center" Margin="2 0 2 0" Text="新建项目" />
+                </StackPanel>
+            </Button>
+            <Button Margin="30 5 5 5"  x:Name="btnNewBundles" Click="BtnNewBundles_OnClick">
+                <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                    <Image  Source="/OsgiDllTool;Component/Images/BundleInfor.png" Width="24" Height="24" />
+                    <TextBlock VerticalAlignment="Center" Margin="2 0 2 0" Text="新建Bundle" />
+                </StackPanel>
+            </Button>
+            <Button Margin="30 5 5 5" x:Name="btnDele" Click="BtnDele_OnClick">
+                <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                    <Image  Source="/OsgiDllTool;Component/Images/delete.png" Width="24" Height="24" />
+                    <TextBlock VerticalAlignment="Center" Margin="2 0 2 0" Text="删除" />
+                </StackPanel>
+            </Button>
+            <Button Margin="30 5 5 5" x:Name="btnExecution"  Click="BtnExecution_OnClick">
+                <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                    <Image  Source="/OsgiDllTool;Component/Images/copy.png" Width="24" Height="24" />
+                    <TextBlock VerticalAlignment="Center" Margin="2 0 2 0" Text="生成" />
+                </StackPanel>
+            </Button>
+        </DockPanel>
+        <TreeView Margin="5" x:Name="treeView" Grid.Column="0" Grid.Row="1"
+                  KeyDown="treeView1_KeyDown"
+                  SelectedItemChanged="TreeView_OnSelectedItemChanged">
+        </TreeView>
+        <GridSplitter Margin="0 5 0 5" Grid.Row="1" Grid.Column="1" Width="2" Background="Gainsboro" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></GridSplitter>
+
+        <view2:BundleInfoSetView Visibility="Collapsed" Grid.Row="1" Grid.Column="2" x:Name="bundleInfoSetView"></view2:BundleInfoSetView>
+        <view2:ProjectSetView Visibility="Collapsed" Grid.Row="1" Grid.Column="2" x:Name="projectSetView"></view2:ProjectSetView>
+    </Grid>
+</Window>

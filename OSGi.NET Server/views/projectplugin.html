@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="no-js">
+    {{template "base/header.html" .}}
+    <body>
+        {{template "base/navbar.html" .}}
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3" id="sidebar">
+         
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                        <li>
+                            <a href="/shareplugin"><i class="icon-chevron-right"></i> 公共插件</a>
+                        </li>
+                        <li class="active">
+                            <a href="/projectplugin"><i class="icon-chevron-right"></i> 项目管理</a>
+                        </li>
+                        {{range .projects}}
+                            <li>
+                                <a href="/projectdetail?projectid={{.ProjectId}}"><i class="icon-briefcase" style="opacity: .3;"></i><span class="badge badge-info pull-right">{{.PluginCount}}</span> {{.ProjectName}}</a>
+                            </li>
+                        {{end}}
+                        <li>
+                            <a href="/submitplugin"><i class="icon-upload" style="opacity: .3;margin-top:3px;"></i> 提交插件</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/span-->
+                <div class="span9" id="content">
+                    <div class="block">
+                        <div class="navbar navbar-inner block-header">
+                            <div class="muted pull-left">项目列表</div>
+                        </div>
+                        <div class="block-content collapse in">
+                            <div class="span12">
+                                <style type="text/css">  
+                                    .projectlistContent{ width:100%; float:left;}   
+                                    .projectlistContent ul{ width:100%; margin: 0px;}   
+                                    .projectlistContent li{ width:50%; float:left; display:block;}   
+                                    .projecttitle{ margin: 10px; font-weight: bolder; font-size: 14px;clear: right;}
+                                    .projecttitle span{ font-weight: normal; font-size: 14px; color: #595959}
+                                    .projectTime{ margin: 10px; font-size: 14px;clear: right;}
+                                    .projectintro{ margin: 10px;  font-size: 12px; text-indent: 2em;clear: left;height: 60px; overflow:hidden;}
+                                    .linkSpan:link,.linkSpan:hover,.linkSpan:visited{ 
+                                        -webkit-border-radius: 5px; 
+                                        -moz-border-radius: 5px; 
+                                        border-radius: 5px;
+                                        padding: 5px 10px; 
+                                        background-color:#EFEFF7; 
+                                        color: #000000; }
+                                </style>  
+                                <div class="projectlistContent"> 
+                                    <ul>  
+                                        {{range .projects}}
+                                            <li>
+                                                <div class="projecttitle"><i class="icon-info-sign" style="margin-top:5px;"></i> <a class="linkSpan" href='/projectdetail?projectid={{.ProjectId}}'>{{.ProjectName}}</a> <span>( 创建：{{dateformat  .CreateTime  "2006/01/02"}}， 插件：{{.PluginCount}}个 )</span></div>
+                                                <div>
+                                                <div class="projectintro">{{.ProjectIntro}}</div>
+                                            </li>
+                                        {{end}} 
+                                    </ul> 
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {{template "base/footer.html" .}}
+        </div>
+    </body>
+</html>

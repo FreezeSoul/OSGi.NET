@@ -1,0 +1,34 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="OSGiClientManager.MainWindow"
+        Title="MainWindow" Height="350" Width="525" Closed="MainWindowOnClosed">
+    <Grid>
+        <dxb:BarManager>
+            <dxb:BarManager.Bars>
+                <dxb:Bar Caption="Edit">
+                    <dxb:BarButtonItemLink BarItemName="Start"/>
+                    <dxb:BarButtonItemLink BarItemName="Exit"/>
+                </dxb:Bar>
+            </dxb:BarManager.Bars>
+            <dxb:BarManager.Items>
+                <dxb:BarButtonItem x:Name="Start" Content="启动" LargeGlyph="Images/Start.png" ItemClick="StartItemClick"/>
+                <dxb:BarButtonItem x:Name="Exit" Content="退出" LargeGlyph="Images/Exit.png" ItemClick="ExitItemClick"/>
+            </dxb:BarManager.Items>
+            <Grid>
+                <dxg:GridControl x:Name="GridControlClientList" AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True">
+                    <dxg:GridControl.Columns>
+                        <dxg:GridColumn FieldName="ClientID" Header="客户ID"/>
+                        <dxg:GridColumn FieldName="ClientIP" Header="客户IP"/>
+                        <dxg:GridColumn FieldName="StartTime" Header="登录时间"/>
+                        <dxg:GridColumn FieldName="RunningState" Header="运行状态"/>
+                        <dxg:GridColumn FieldName="View" Header="查看"/>
+                    </dxg:GridControl.Columns>
+                    <dxg:GridControl.View>
+                        <dxg:TableView ShowTotalSummary="True" AllowEditing="False" ShowGroupPanel="False"/>
+                    </dxg:GridControl.View>
+                </dxg:GridControl>
+            </Grid>
+        </dxb:BarManager>
+    </Grid>
+</Window>

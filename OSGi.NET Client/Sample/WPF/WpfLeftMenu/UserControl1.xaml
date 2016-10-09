@@ -1,0 +1,27 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxn="http://schemas.devexpress.com/winfx/2008/xaml/navbar" x:Class="WpfLeftMenu.UserControl1" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+
+        <dxn:NavBarControl>
+            <dxn:NavBarControl.View>
+                <dxn:SideBarView/>
+            </dxn:NavBarControl.View>
+            <dxn:NavBarGroup Header="Group 1" Name="TopGroup">
+                <dxn:NavBarItem Content="Item 1"/>
+                <dxn:NavBarItem Content="Item 2"/>
+            </dxn:NavBarGroup>
+            <dxn:NavBarGroup Header="Group 2">
+                <dxn:NavBarItem Content="安装插件" Click="NavBarItemInstall_OnClick"/>
+                <dxn:NavBarItem Content="卸载插件" Click="NavBarItemUninstall_OnClick"/>
+                <dxn:NavBarItem Content="更新插件" Click="NavBarItemUpdate_OnClick"/>
+                <dxn:NavBarItem Content="还原插件" Click="NavBarItemRestore_OnClick"/>
+            </dxn:NavBarGroup>
+        </dxn:NavBarControl>
+    </Grid>
+</UserControl>

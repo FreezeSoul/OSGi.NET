@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bundle AssemblyName="OSGi.NET.PluginA" StartLevel="1">
+  <!--<ExtensionPoint Point="OSGi.NET.PluginAExtension" />-->
+  <Extension Point="OSGi.NET.PluginAExtension">
+    <!--这里作为数据节点存放内容-->
+  </Extension>
+</Bundle>
+<!--这是一个示例文件-->

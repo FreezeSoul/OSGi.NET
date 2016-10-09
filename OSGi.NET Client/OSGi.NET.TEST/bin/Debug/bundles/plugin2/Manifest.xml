@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bundle Name="OSGi.NET.Plugin1" Version="1.0.0.0" Index="3">
+  <Activator Type="OSGi.NET.Plugin1.Activator"/>
+  <Runtime>
+    <Assembly Path="bin\OSGi.NET.APEDecoderPlugin.dll" Share="false" />
+  </Runtime>
+  <Extension Point="OSGi.NET.Plugin1Extension">
+  </Extension>
+</Bundle>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="no-js">
+    {{template "base/header.html" .}}
+    <body>
+        {{template "base/navbar.html" .}}
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3" id="sidebar">
+         
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                        <li>
+                            <a href="/shareplugin"><i class="icon-chevron-right"></i> 公共插件</a>
+                        </li>
+                        <li>
+                            <a href="/projectplugin"><i class="icon-chevron-right"></i> 项目管理</a>
+                        </li>
+                        <li class="active">
+                            <a href="/submitplugin"><i class="icon-upload" style="opacity: .3;margin-top:3px;"></i> 提交插件</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="{{.backurl}}"><i class="icon-arrow-left" style="opacity: .3;"></i> 返回</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/span-->
+                <div class="span9" id="content">
+                   <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left"> 提交插件</div>
+                            </div>
+                            <div class="alert alert-info alert-block hide" style="margin:20px;">
+                                <a class="close" data-dismiss="alert" href="#">&times;</a>
+                                <h4 class="alert-heading">提示!</h4>
+                                插件信息保存成功. <a href="/plugindetail?pluginid={{.pluginid}}" style="margin-left:10px;font-weight: bold;">查看</a>
+                            </div>
+                            <div class="alert alert-error validation-error hide" style="margin:20px;">
+                                <button class="close" data-dismiss="alert"></button>
+                                请确认插件信息填写完整!
+                            </div>
+                            <div class="alert alert-success validation-success hide" style="margin:20px;">
+                                <button class="close" data-dismiss="alert"></button>
+                                插件信息填写正确.
+                            </div>
+                            <div class="block-content collapse in">
+                                <div class="span12">
+                                     <form class="form-horizontal" enctype="multipart/form-data" id="pluginform" name="pluginform" action="" method="post">
+                                      <fieldset>
+                                        <legend style="font-size:16px;">请填写插件信息</legend>
+                                        <div class="control-group">
+                                              <label class="control-label" for="pluginname">插件名称<span class="required">*</span></label>
+                                              <div class="controls">
+                                                <input type="hidden" value="{{.pluginid}}" name="pluginid" id="pluginid">
+                                                <input type="text" value="{{.pluginname}}"  placeholder="插件名称 ..." class="span8" name="pluginname" id="pluginname">
+                                              </div>
+                                        </div>
+                                        <div class="control-group">
+                                              <label class="control-label" for="pluginisshare">插件种类<span class="required">*</span></label>
+                                              <div class="controls">
+                                                <label class="uniform">
+                                                 <select class="span8 m-wrap" name="pluginisshare" id="pluginisshare">
+                                                    <option value="1" {{isselected "1" .pluginisshare}}>公共插件</option>
+                                                    <option value="2" {{isselected "2" .pluginisshare}}>项目插件</option>
+                                                </select>
+                                              </div>
+                                        </div>
+                                       <div class="control-group" id="projectSelectDiv">
+                                              <label class="control-label" for="projectSelect">选择项目</label>
+                                              <div class="controls">
+                                                <label class="uniform">
+                                                 <select class="span8 m-wrap" name="projectSelect" id="projectSelect">
+                                                    {{$projectid := .projectid}}
+                                                    {{range .projects}}
+                                                    <option value="{{.ProjectId}}" {{isselected .ProjectId $projectid}}>{{.ProjectName}}</option>
+                                                    {{end}}
+                                                </select>
+                                              </div>
+                                        </div>
+                                        <div class="control-group">
+                                              <label class="control-label" for="pluginimage">插件图片</label>
+                                              <div class="controls">
+                                                <div style="margin-bottom:10px;">
+                                                    <img id="pluginimagepreview" src="" alt="插件图片" style="height:120px;"/>
+                                                </div>
+                                                <input class="input-file uniform_on" name="pluginimage" id="pluginimage" type="file">
+                                              </div>
+                                        </div>
+                                        <div class="control-group">
+                                              <label class="control-label" for="pluginintro">插件简介<span class="required">*</span></label>
+                                              <div class="controls">
+                                                <textarea class="span8 textarea" placeholder="插件简介 ..." style="height: 100px" name="pluginintro" id="pluginintro">{{.pluginintro}}</textarea>
+                                              </div>
+                                        </div>
+                                         <div class="control-group">
+                                              <label class="control-label" for="pluginauthor">插件作者<span class="required">*</span></label>
+                                              <div class="controls">
+                                                <input type="text" placeholder="插件作者 ..." class="span8" value="{{.pluginauthor}}" name="pluginauthor" id="pluginauthor">
+                                              </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="plugintypeid">插件类型<span class="required">*</span></label>
+                                            <div class="controls">
+                                                <select class="span8 m-wrap" name="plugintypeid" id="plugintypeid">
+                                                    {{$typeid := .plugintypeid}}
+                                                    {{range .types}}
+                                                        <option value="{{.PluginTypeId}}" {{isselected $typeid .PluginTypeId}}>{{.PluginTypeName}}</option>
+                                                    {{end}}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                              <label class="control-label" for="plugindocument">插件手册</label>
+                                              <div class="controls">
+                                                <a target="_blank" href="{{.plugindocument}}" class="btn btn-default" style="margin-right:10px;">下载</a><input class="input-file uniform_on" name="plugindocument" id="plugindocument" type="file">
+                                              </div>
+                                        </div>
+                                         <div class="control-group">
+                                              <label class="control-label" for="plugindetail">使用指南</label>
+                                              <div class="controls">
+                                                <textarea class="input-xlarge textarea" placeholder="使用指南 ..." style="width: 600px; height: 200px;" name="plugindetail" id="plugindetail">{{.plugindetail}}</textarea>
+                                              </div>
+                                        </div>
+                                        <div class="form-actions">
+                                          <button type="submit" style="width:100px;" class="btn btn-primary">保存</button>
+                                        </div>
+                                      </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {{template "base/footer.html" .}}
+        </div>
+        <link href="/static/vendors/uniform.default.css" rel="stylesheet" media="screen">
+        <link href="/static/vendors/wysiwyg/bootstrap-wysihtml5.css" rel="stylesheet" media="screen">
+
+        <script type="text/javascript" src="/static/vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="/static/vendors/jquery.uniform.min.js"></script>
+
+        <script type="text/javascript" src="/static/vendors/wysiwyg/wysihtml5-0.3.0.js"></script>
+        <script type="text/javascript" src="/static/vendors/wysiwyg/bootstrap-wysihtml5.js"></script>
+
+        <script type="text/javascript" src="/static/javascript/util.js"></script>
+        <script type="text/javascript" src="/static/javascript/submitplugin.js"></script>
+
+        <script type="text/javascript">
+            var pluginimg = '{{.pluginimage}}';
+        </script>
+    </body>
+</html>

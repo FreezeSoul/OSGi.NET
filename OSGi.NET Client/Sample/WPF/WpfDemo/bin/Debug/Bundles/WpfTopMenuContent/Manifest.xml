@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bundle AssemblyName="WpfTopMenuContent" StartLevel="3">
+  <Extension Point="WpfLeftMenu.TopMenuExtension">
+    <Item Name="菜单A"></Item>
+    <Item Name="菜单B"></Item>
+    <Item Name="菜单C"></Item>
+  </Extension>
+</Bundle>

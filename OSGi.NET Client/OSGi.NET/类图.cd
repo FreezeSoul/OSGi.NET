@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OSGi.NET.Core.Bundle" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAcBAEDjJQgQGqIC4CChABAEAYoCEIICKBAJAAIA=</HashCode>
+      <FileName>Core\Bundle.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OSGi.NET.Core.BundleStateConst" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQDAAEAAAAAAAAAAAAAAAAAAACAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Core\BundleConst.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Core.BundleConst" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAgAAAAAgAAAAAAQAAAAAAAAAABAIAAkAAAAAAA=</HashCode>
+      <FileName>Core\BundleConst.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Core.BundleContext" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAACAAACNAJAAAAIACAAAIRCiCAAgSCIhAAAQCAAEA=</HashCode>
+      <FileName>Core\BundleContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OSGi.NET.Core.Root.Framework" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGyACEAACfhIYBEEIACQCAARDmGBIgUEIpIaEQEAAMQ=</HashCode>
+      <FileName>Core\Root\Framework.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OSGi.NET.Core.Root.FrameworkFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Root\FrameworkFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OSGi.NET.Event.BundleEventArgs" Collapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQDEAAAAAAAAAAAAAAAIIAAACCAAAEAAAAAACAAAA=</HashCode>
+      <FileName>Event\BundleEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Event.ExtensionEventArgs" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAQAgAAEAAAgAAAAAIAAAAAEAAAAAAAAAIA=</HashCode>
+      <FileName>Event\ExtensionEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Event.ServiceEventArgs" Collapsed="true">
+    <Position X="3" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAgAAAAAAAAAABCAAAAAAEAAAAgBAACAA=</HashCode>
+      <FileName>Event\ServiceEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Extension.ExtensionData" Collapsed="true">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAQAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extension\ExtensionData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Extension.ExtensionPoint" Collapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extension\ExtensionPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Provider.BundleAssemblyProvider" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAgAAAAAAAEAICAACAAEAABAAAIAAwAAAAAgCAA=</HashCode>
+      <FileName>Provider\BundleAssemblyProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Provider.BundleConfigProvider" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JQQQAgAAQAIAAgAQACSAAYAGBgAgAANEAEIAACCgCAA=</HashCode>
+      <FileName>Provider\BundleConfigProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Service.ServiceReference" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIACIAAAAAAQAQAAAAAAEIAAAAAAAAAAEAAgAAACEA=</HashCode>
+      <FileName>Service\ServiceReference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OSGi.NET.Service.ServiceRegistration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAwAAAAAAAAAAAAIAAAACAAAAAAAAAEAA=</HashCode>
+      <FileName>Service\ServiceRegistration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OSGi.NET.Utils.AssemblyResolver" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAEAAAAAAAAAAAEIIIBQAAAAgAAIAAAAQAACwAAAAAA=</HashCode>
+      <FileName>Utils\AssemblyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Utils.BundleUtils" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEEAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\BundleUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Utils.CustomAssemblyResolver" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\CustomAssemblyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Utils.MonoAssemblyResolver" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Utils\MonoAssemblyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Utils.MonoReflector" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\MonoAssemblyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Utils.MonoAssemblyReflector" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAIAAIAIAAAAAABAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Utils\MonoAssemblyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Utils.MonoTypeReflector" Collapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIQAAAAAAAQAABAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Utils\MonoAssemblyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSGi.NET.Utils.MonoAttributeReflector" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAgAAAAACA=</HashCode>
+      <FileName>Utils\MonoAssemblyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="OSGi.NET.Core.IBundle" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAChAAAAAIACQAAAABAAAIAAAIIAIAAAAAIA=</HashCode>
+      <FileName>Core\IBundle.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Core.IBundleActivator" Collapsed="true">
+    <Position X="3" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Core\IBundleActivator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Core.IBundleContext" Collapsed="true">
+    <Position X="4.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAACAAAANAIAAAAIAAAAAIRCCCAAgQAAgAAAQAAAEA=</HashCode>
+      <FileName>Core\IBundleContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Core.Root.IFramework" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Core\Root\IFramework.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Core.Root.IFrameworkFactory" Collapsed="true">
+    <Position X="3" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Root\IFrameworkFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Core.Root.IFrameworkInstaller" Collapsed="true">
+    <Position X="6.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAEAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Root\IFrameworkInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Core.Root.IFrameworkListener" Collapsed="true">
+    <Position X="8.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABACAAAgQAAgAAAQAAAAA=</HashCode>
+      <FileName>Core\Root\IFrameworkListener.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Core.Root.IFrameworkService" Collapsed="true">
+    <Position X="10" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAMAIAAAAAAAAAAAACACAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Core\Root\IFrameworkService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Event.IContextFireEvent" Collapsed="true">
+    <Position X="8.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Event\IContextFireEvent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Event.IFrameworkFireEvent" Collapsed="true">
+    <Position X="4.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAIAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Event\IFrameworkFireEvent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Listener.IBundleListener" Collapsed="true">
+    <Position X="6.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Listener\IBundleListener.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Listener.IExtensionListener" Collapsed="true">
+    <Position X="10" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Listener\IExtensionListener.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Listener.IServiceListener">
+    <Position X="3" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Listener\IServiceListener.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Service.IServiceReference">
+    <Position X="4.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAACIAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAgAAAAEA=</HashCode>
+      <FileName>Service\IServiceReference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OSGi.NET.Service.IServiceRegistration">
+    <Position X="6.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Service\IServiceRegistration.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

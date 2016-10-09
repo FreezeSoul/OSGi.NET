@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class="no-js">
+    {{template "base/header.html" .}}
+    <body data-spy="scroll" data-target="#sidebar">
+        {{template "base/navbar.html" .}}
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3" id="sidebar">
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse" style="width:200px;">
+                        <li class="active">
+                            <a class="page-scroll" href="#intro"><i class="icon-chevron-right"></i> 插件介绍</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#develop"><i class="icon-chevron-right"></i> 使用指南</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#depend"><i class="icon-chevron-right"></i> 插件依赖</a>
+                        </li>
+                         <li>
+                            <a class="page-scroll" href="#version"><i class="icon-chevron-right"></i> 插件版本</a>
+                        </li>
+                         <li>
+                            <a class="page-scroll" href="{{.backurl}}"><i class="icon-arrow-left" style="opacity: .3;"></i> 返回</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/span-->
+                <div class="span9" id="content">
+                   <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left"> 插件信息</div>
+                                <div style="float:right;">
+                                  <a id="deleteConfirm" href="/deleteplugin?pluginid={{.plugin.PluginId}}" class="btn btn-default" style="margin-top:-5px;"><i class="icon-remove" style="margin-top:5px;"></i><lable style="margin-left:5px;">删除插件</lable></a>
+                                  <a href="/submitplugin?pluginid={{.plugin.PluginId}}" class="btn btn-default" style="margin-top:-5px;"><i class="icon-edit" style="margin-top:5px;"></i><lable style="margin-left:5px;">编辑信息</lable></a>
+                                  <a href="#" class="btn btn-default" style="margin-top:-5px;"><i id="edit" class="icon-edit" style="margin-top:5px;"></i><lable style="margin-left:5px;">设置依赖</lable></a>
+                                  <a href="#" class="btn btn-default" style="margin-top:-5px;"><i id="edit" class="icon-briefcase" style="margin-top:5px;"></i><lable style="margin-left:5px;">关联项目</lable></a>
+                                  <a href="/publishplugin?pluginid={{.plugin.PluginId}}" class="btn btn-default" style="margin-top:-5px;"><i class="icon-edit" style="margin-top:5px;"></i><lable style="margin-left:5px;">提交版本</lable></a>
+                                </div>
+                            </div>
+                            <style type="text/css">  
+                                #content h4,#content .pluginimg,#content .introContent,#content .pluginDetail,#content .pluginDocuemnt,#content .pluginDepends,#content .pluginVersions{
+                                  margin: 20px 50px;
+                                }
+                                #content .pluginintro,#content .pluginDetail{
+                                   text-indent: 2em;
+                                }
+                                #content .plugininfo{
+                                  float: right;
+                                  right: 110px;
+                                  margin-top: 10px;
+                                  position: absolute;
+                                  background: #fff;
+                                  -webkit-border-radius: 5px; 
+                                  -moz-border-radius: 5px; 
+                                  border-radius: 5px;
+                                  padding: 5px 10px;
+                                  border: 1px solid #ccc;
+                                }
+                            </style>
+                            <center><h3>{{.plugin.PluginName}}</h3></center>
+                            <section id="intro" class="intro-section">
+                                <h4>插件介绍</h4>
+                                  <div class="plugininfo">
+                                    <div class="plugininforow"><lable>插件种类：</lable>{{.PluginKindName}}</div>
+                                    <div class="plugininforow"><lable>插件类型：</lable>{{.PluginTypeName}}</div>
+                                    <div class="plugininforow"><lable>插件作者：</lable>{{.plugin.PluginAuthor}}</div>
+                                    <div class="plugininforow"><lable>创建时间：</lable>{{dateformat  .plugin.CreateTime  "2006-01-02 15:04:05"}}</div>
+                                    <div class="plugininforow"><lable>更新时间：</lable>{{dateformat  .plugin.UpdateTime  "2006-01-02 15:04:05"}}</div>
+                                    <div class="plugininforow"><lable>最新版本：</lable>{{.LastVersion}}</div>
+                                  </div>
+                                  <div class="pluginimg"><img class="img-rounded" src="{{.plugin.PluginImage}}" alt="插件图片"/></div>
+                                  <div class="introContent">
+                                    <div class="pluginintro">{{.plugin.PluginIntro}}</div>
+                                  </div>
+                            </section>
+                            <section id="develop" class="develop-section">
+                                <h4>使用指南</h4>
+                                <div class="pluginDocuemnt"> <a target="_blank" href="{{.plugin.PluginDocument}}" class="btn btn-default" style="margin-right:10px;"><i class="icon-download-alt"></i> 插件手册</a></div>
+                                <div class="pluginDetail">{{.pluginDetail}}</div>
+                            </section>
+                            <section id="depend" class="depend-section">
+                                <h4>插件依赖</h4>
+                                <div class="pluginDepends"></div>
+                            </section>
+                            <section id="version" class="version-section">
+                                <h4>插件版本</h4>
+                                <div class="pluginVersions">
+                                  {{$pluginid := .plugin.PluginId}}
+                                  {{range .historyVersions}}
+                                      <div>
+                                      <a href="/pluginversion?pluginid={{$pluginid}}&version={{.Version}}">Version: {{.Version}}</a>
+                                       <font style="color:#555555">(提交时间：{{dateformat  .CreateTime  "2006-01-02 15:04:05"}})</font>
+                                      <pre>{{.TraceInfo}}</pre>
+                                      </div>
+                                  {{end}}
+                                </div>
+                            </section>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {{template "base/footer.html" .}}
+        </div>
+        <script type="text/javascript" src="/static/vendors/easing/jquery.easing.min.js"></script>
+        <script type="text/javascript" src="/static/vendors/bootbox/bootbox.min.js"></script>
+
+        <script type="text/javascript" src="/static/javascript/plugindetail.js"></script>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="OsgiDllTool.View.AddProjectView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="新建项目" SizeToContent="WidthAndHeight" WindowStyle="ToolWindow">
+    <StackPanel  Margin="15">
+        <WrapPanel>
+            <TextBlock VerticalAlignment="Center" Text="项目名称："></TextBlock>
+            <TextBox Height="25" VerticalAlignment="Center" x:Name="txtName" Text="" Width="150"></TextBox>
+        </WrapPanel>
+        <WrapPanel Margin="0 15 0 0" HorizontalAlignment="Right">
+            <Button IsDefault="True" Width="40" Height="25" Margin="10 0 30 0" Content="确定" x:Name="btnEnter" Click="BtnEnter_OnClick"></Button>
+            <Button IsCancel="True" Width="40" Height="25" Content="取消" x:Name="btnEsc" Click="BtnEsc_OnClick"></Button>
+        </WrapPanel>
+    </StackPanel>
+</Window>

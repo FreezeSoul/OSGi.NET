@@ -1,0 +1,40 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" x:Class="WpfRightContent.UserControl2" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+
+        <dxc:ChartControl>
+            <dxc:ChartControl.Titles>
+                <dxc:Title Content="Pie Chart 3D" HorizontalAlignment="Center"/>
+            </dxc:ChartControl.Titles>
+            <dxc:SimpleDiagram3D ZoomPercent="140">
+                <dxc:PieSeries3D LabelsVisibility="True">
+                    <dxc:PieSeries3D.Label>
+                        <dxc:SeriesLabel dxc:PieSeries.LabelPosition="TwoColumns"/>
+                    </dxc:PieSeries3D.Label>
+                    <dxc:PieSeries3D.PointOptions>
+                        <dxc:PointOptions PointView="ArgumentAndValues">
+                            <dxc:PointOptions.ValueNumericOptions>
+                                <dxc:NumericOptions Format="Percent" Precision="0"/>
+                            </dxc:PointOptions.ValueNumericOptions>
+                        </dxc:PointOptions>
+                    </dxc:PieSeries3D.PointOptions>
+                    <dxc:SeriesPoint Argument="A" Value="1"/>
+                    <dxc:SeriesPoint Argument="B" Value="3"/>
+                    <dxc:SeriesPoint Argument="C" Value="5"/>
+                    <dxc:SeriesPoint Argument="D" Value="6"/>
+                    <dxc:SeriesPoint Argument="E" Value="7"/>
+                    <dxc:SeriesPoint Argument="F" Value="6"/>
+                    <dxc:SeriesPoint Argument="G" Value="5"/>
+                    <dxc:SeriesPoint Argument="H" Value="4"/>
+                </dxc:PieSeries3D>
+            </dxc:SimpleDiagram3D>
+        </dxc:ChartControl>
+
+    </Grid>
+</UserControl>

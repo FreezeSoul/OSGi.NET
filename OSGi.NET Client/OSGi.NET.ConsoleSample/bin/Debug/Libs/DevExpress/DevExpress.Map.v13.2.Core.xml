@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevExpress.Map.v13.2.Core</name>
+    </assembly>
+    <members>
+        <member name="T:DevExpress.Map.IColorizerRangeDistribution">
+
+            <summary>
+                <para>Interface which should be implemented by all classes which produce range distribution. 
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Map.IColorizerRangeDistribution.ConvertRangeValue(System.Double)">
+            <summary>
+                <para>Converts the value of a color range in a colorizer.
+
+</para>
+            </summary>
+            <param name="value">
+		A value that should be converted.
+
+            </param>
+            <returns>A double value.
+</returns>
+
+
+        </member>
+    </members>
+</doc>

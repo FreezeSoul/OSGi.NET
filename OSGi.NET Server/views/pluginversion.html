@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="no-js">
+    {{template "base/header.html" .}}
+    <body>
+        {{template "base/navbar.html" .}}
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3" id="sidebar">
+                    {{$version := .version.Version}}
+                    {{$pluginid := .pluginid}}
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                        {{range .versions}}
+                        <li class="{{isactive $version .Version}}">
+                            <a href="/pluginversion?pluginid={{$pluginid}}&version={{.Version}}"><i class="icon-chevron-right"></i>Version: {{.Version}}</a>
+                        </li>
+                        {{end}}
+                        <li>
+                            <a class="page-scroll" href="{{.backurl}}"><i class="icon-arrow-left" style="opacity: .3;"></i> 返回</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/span-->
+                <div class="span9" id="content">
+                   <div class="row-fluid">
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left"> 版本信息</div>
+                                <div style="float:right;">
+                                  <a id="deleteConfirm" href="/deleteversion?pluginid={{.version.PluginId}}&version={{.version.Version}}" class="btn btn-default" style="margin-top:-5px;"><i id="edit" class="icon-remove" style="margin-top:5px;"></i><lable style="margin-left:5px;">删除版本</lable></a>
+                                </div>
+                            </div>
+                            <div class="block-content collapse in">
+                               <div class="span12">
+                               {{with .version}}
+                                    <h3>Version: {{.Version}}</h3>
+                                    <div><a class="btn btn-default" href="{{.PluginPackage}}"><i class="icon-download-alt"></i> 插件Zip</a>
+                                    <a class="btn btn-default" href="{{.PluginInterface}}"><i class="icon-download-alt"></i> 接口Zip</a></div>
+                                    <h5>版本说明</h5>
+                                    <pre>{{.TraceInfo}}</pre>
+                                {{end}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {{template "base/footer.html" .}}
+        </div>
+        <link href="/static/vendors/uniform.default.css" rel="stylesheet" media="screen">
+
+        <script type="text/javascript" src="/static/vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="/static/vendors/mask/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="/static/vendors/bootbox/bootbox.min.js"></script>
+        <script type="text/javascript" src="/static/vendors/jquery.uniform.min.js"></script>
+
+        <script type="text/javascript" src="/static/javascript/util.js"></script>
+        <script type="text/javascript" src="/static/javascript/publishplugin.js"></script>
+
+        <style type="text/css">
+        .uploader .help-inline{
+            line-height: 25px;
+        }
+        </style>
+    </body>
+</html>

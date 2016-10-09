@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="no-js">
+    {{template "base/header.html" .}}
+    <body>
+        {{template "base/navbar.html" .}}
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3" id="sidebar">
+         
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                        <li>
+                            <a href="/shareplugin"><i class="icon-chevron-right"></i> 公共插件</a>
+                        </li>
+                        <li>
+                            <a href="/projectplugin"><i class="icon-chevron-right"></i> 项目管理</a>
+                        </li>
+                        {{$projectid := .projectid}}
+                        {{range .projects}}
+                            <li  class="{{isactive $projectid .ProjectId}}">
+                                <a href="/projectdetail?projectid={{.ProjectId}}"><i class="icon-briefcase" style="opacity: .3;"></i><span class="badge badge-info pull-right">{{.PluginCount}}</span> {{.ProjectName}}</a>
+                            </li>
+                        {{end}}
+                        <li>
+                            <a href="/submitplugin"><i class="icon-upload" style="opacity: .3;margin-top:3px;"></i> 提交插件</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/span-->
+                <div class="span9" id="content">
+                    <div class="block">
+                        <div class="navbar navbar-inner block-header">
+                            <div class="muted pull-left">项目信息</div>
+                        </div>
+                        <div class="alert alert-info alert-block hide" style="margin:20px;">
+                                <a class="close" data-dismiss="alert" href="#">&times;</a>
+                                <h4 class="alert-heading">提示!</h4>
+                                插件关系已移除. 
+                        </div>
+                        <div class="block-content collapse in">
+                            <div class="span12">
+                                 <style type="text/css">  
+                                    .projectDetail,.projectPlugins{
+                                      margin: 20px 50px;
+                                    }
+                                    .projectDetail,.pluginIntro{
+                                       text-indent: 2em;
+                                       margin-top: 10px;
+                                    }
+                                    .pluginManifest{
+                                      margin: 20px 10px;
+                                    }
+                                    .panel {
+                                      margin-bottom: 20px;
+                                      background-color: #F5F5F5;
+                                      border: 1px solid transparent;
+                                      border-radius: 4px;
+                                      -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+                                      box-shadow: 0 1px 1px rgba(0,0,0,.05);
+                                    }
+                                    .panel-group .panel+.panel {
+                                      margin-top: 5px;
+                                    }
+                                    .panel-group .panel {
+                                      margin-bottom: 0;
+                                      border-radius: 4px;
+                                    }
+                                    .panel-default {
+                                      border-color: #ddd;
+                                    }
+                                    .panel-collapse{
+                                      background-color: #FFF;
+                                    }
+                                    .plugininfo{
+                                      margin: 5px;
+                                    }
+                                </style>
+
+                                <center><h3>{{.project.ProjectName}}</h3></center>
+                                <div class="projectDetail">{{.project.ProjectDetail}}</div>
+                                <div class="projectPlugins">
+                                  <h5>项目插件</h5>
+                                  <div class="plugininfo"><span>共享:</span><img src="/static/images/public.png" width="24"//> <span>私有:</span><img src="/static/images/private.png" width="24"/></div>
+                                  <!-- Nav tabs -->
+                                  <ul class="nav nav-tabs" role="tablist">
+                                    {{range  $i, $results :=.plugintypes}}
+                                    <li class="{{if eq 0 $i}}active{{end}}" style="{{if eq 0 .PluginCount}}display:none;{{end}}"><a href="#tabmenu{{$i}}" role="tab" data-toggle="tab">{{.PluginType.PluginTypeName}}({{.PluginCount}})</a></li>
+                                    {{end}}
+                                  </ul>
+
+                                  <!-- Tab panes -->
+                                  <div class="tab-content">
+                                    {{range $j, $results :=.plugintypes}}
+                                    <div class="tab-pane {{if eq 0 $j}}active{{end}}" id="tabmenu{{$j}}">
+                                      
+
+                                      <div class="panel-group" id="accordion">
+                                          {{range $n, $plugins :=.Plugins}}
+                                          <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                              <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$j}}-{{$n}}" style="margin-left:20px;color: #0094DE;text-decoration: none;">
+                                                  {{.PluginName}} <span style="font-size:14px;">(LastVersion : {{.LastVersion}}) <img src="/static/images/{{if eq true .PluginIsShare}}public{{else}}private{{end}}.png" width="24"></span>
+                                                </a>
+                                                <a href="/plugindetail?pluginid={{.PluginId}}" class="btn btn-mini pull-right" style="margin:auto 5px;"><i class="icon-eye-open" style="margin-top:2px;"></i><lable style="margin-left:5px;">查看</lable></a>
+                                                <a href="/deletepluginmap?projectid={{$projectid}}&pluginid={{.PluginId}}&isshare={{.PluginIsShare}}" class="btn btn-mini pull-right deleteConfirm" style="margin:auto 5px;"><i class="icon-remove" style="margin-top:2px;"></i><lable style="margin-left:5px;">移除</lable></a>
+                                                <a href="/submitplugin?pluginid={{.PluginId}}" class="btn btn-mini pull-right" style="margin:auto 5px;"><i class="icon-edit" style="margin-top:2px;"></i><lable style="margin-left:5px;">编辑</lable></a>
+                                                <a href="/publishplugin?pluginid={{.PluginId}}" class="btn btn-mini pull-right" style="margin:auto 5px;"><i class="icon-tag" style="margin-top:2px;"></i><lable style="margin-left:5px;">版本</lable></a>
+                                              </h4>
+                                            </div>
+                                            <div id="collapse{{$j}}-{{$n}}" class="panel-collapse collapse">
+                                              <div class="panel-body">
+                                                 <div class="pluginIntro">{{.PluginIntro}}</div>
+                                                 <div class="pluginManifest">
+                                                 <div style="margin-left:5px;"><h6>插件清单</h6></div>
+                                                 <pre style="min-height: 150px;"><a href="#" class="editManifest" projectid="{{$projectid}}" pluginid="{{.PluginId}}">{{.PluginManifest}}</a></pre>
+                                                 </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          {{end}}
+                                      </div>
+
+                                    </div>
+                                    {{end}}
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {{template "base/footer.html" .}}
+        </div>
+        <link href="/static/vendors/editable/bootstrap-editable.css" rel="stylesheet" media="screen">
+
+        <script type="text/javascript" src="/static/vendors/editable/bootstrap-editable.min.js"></script>
+        <script type="text/javascript" src="/static/vendors/bootbox/bootbox.min.js"></script>
+        <script type="text/javascript" src="/static/javascript/util.js"></script>
+
+        <script type="text/javascript" src="/static/javascript/projectdetail.js"></script>
+    </body>
+</html>

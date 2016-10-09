@@ -1,0 +1,163 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type"/>
+    <title>如何使用服务</title>
+</head>
+
+<body>
+<h3>面向服务的编程模型作为OSGi.NET中模块通信的主要手段，有效隔离了个组件间的依赖，给予了我们一种即插即用的软件开发方法，意味着更强的灵活性。</h3>
+<p>
+在OSGi.NET中开发服务，首先需要在公共组件中定义服务契约，特定模块针对服务契约进行实现并将实现服务通过OSGi.NET服务注册机制进行发布，其他关心这个服务的模块仅需要订阅获取这个服务即可使用，这避免了组件间的直接依赖，减少了不必要的耦合。
+</p>
+<p>
+下面说明在OSGi.NET中服务的使用方式：
+</p>
+1.建立服务契约项目<br/>
+<img src="../Image/ContractInterface.png" /><br/>
+2.在服务契约组件中定义接口契约IHelloWord<br/>
+<p style="background-color:#323232">
+<pre style="color:#dedede; background-color:#323232; font-size:10pt; font-family:'Courier New';"><span style="color:#f0e68c">using</span> System<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Collections<span style="color:#dedede">.</span>Generic<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Linq<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Text<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">namespace</span> ServiceContract
+<span style="color:#dedede">{</span>
+    <span style="color:#f0e68c">public interface</span> <font color="#9CDBEF">IHelloWord</font>
+    <span style="color:#dedede">{</span>
+        <span style="color:#bdb66b">string</span> <span style="color:#f25252">SayHi</span><span style="color:#dedede">(</span><span style="color:#bdb66b">string</span> name<span style="color:#dedede">);</span>
+    <span style="color:#dedede">}</span>
+<span style="color:#dedede">}</span>
+</pre>
+</p>
+3.指定组件对服务契约进行实现<br/>
+<img src="../Image/ContractImplement.png" /><br/>
+<p style="background-color:#323232">
+<pre style="color:#dedede; background-color:#323232; font-size:10pt; font-family:'Courier New';"><span style="color:#f0e68c">using</span> System<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Collections<span style="color:#dedede">.</span>Generic<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Linq<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Text<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">using</span> ServiceContract<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">namespace</span> BundleDemoA
+<span style="color:#dedede">{</span>
+    <span style="color:#f0e68c">public class</span> BundleAHelloWord <span style="color:#dedede">:</span> <font color="#9CDBEF">IHelloWord</font>
+    <span style="color:#dedede">{</span>
+        <span style="color:#f0e68c">public</span> <span style="color:#bdb66b">string</span> <span style="color:#f25252">SayHi</span><span style="color:#dedede">(</span><span style="color:#bdb66b">string</span> name<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+            <span style="color:#f0e68c">return</span> <span style="color:#bdb66b">string</span><span style="color:#dedede">.</span><span style="color:#f25252">Format</span><span style="color:#dedede">(</span><span style="color:#ffa0a0">&quot;</span><span style="color:#8bc4d4">{0}</span> <span style="color:#ffa0a0">answer: Hi</span> <span style="color:#8bc4d4">{1}</span><span style="color:#ffa0a0">!&quot;</span><span style="color:#dedede">,</span> <span style="color:#ffa0a0">&quot;BundleDemoA&quot;</span><span style="color:#dedede">,</span> name<span style="color:#dedede">);</span>
+        <span style="color:#dedede">}</span>
+    <span style="color:#dedede">}</span>
+<span style="color:#dedede">}</span>
+</pre>
+</p>
+4.组件进行服务注册发布操作。发布需要指定契约接口IHelloWord，及发布服务对象<br/>
+<p style="background-color:#323232">
+<pre style="color:#dedede; background-color:#323232; font-size:10pt; font-family:'Courier New';"><span style="color:#f0e68c">using</span> System<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Collections<span style="color:#dedede">.</span>Generic<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Linq<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Text<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">using</span> OSGi<span style="color:#dedede">.</span>NET<span style="color:#dedede">.</span>Core<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> OSGi<span style="color:#dedede">.</span>NET<span style="color:#dedede">.</span>Event<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> OSGi<span style="color:#dedede">.</span>NET<span style="color:#dedede">.</span>Service<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">using</span> ServiceContract<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">namespace</span> BundleDemoA
+<span style="color:#dedede">{</span>
+    <span style="color:#f0e68c">public class</span> BundleActivator <span style="color:#dedede">:</span> IBundleActivator
+    <span style="color:#dedede">{</span>
+
+        <span style="color:#f0e68c">private</span> IServiceRegistration serviceRegistration<span style="color:#dedede">;</span>
+
+        <span style="color:#ffa500">/// &lt;summary&gt;</span>
+        <span style="color:#ffa500">/// </span>
+        <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;context&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#f0e68c">public</span> <span style="color:#bdb66b">void</span> <span style="color:#f25252">Start</span><span style="color:#dedede">(</span>IBundleContext context<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+            <span style="color:#ffa500">//注册发布一个服务</span>
+            serviceRegistration <span style="color:#dedede">=</span> context<span style="color:#dedede">.</span>RegisterService<span style="color:#dedede">&lt;</span><font color="#9CDBEF">IHelloWord</font><span style="color:#dedede">&gt;(</span><span style="color:#f0e68c">new</span> <span style="color:#f25252">BundleAHelloWord</span><span style="color:#dedede">());</span>
+        <span style="color:#dedede">}</span>
+
+        <span style="color:#ffa500">/// &lt;summary&gt;</span>
+        <span style="color:#ffa500">/// </span>
+        <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;context&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#f0e68c">public</span> <span style="color:#bdb66b">void</span> <span style="color:#f25252">Stop</span><span style="color:#dedede">(</span>IBundleContext context<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+            <span style="color:#ffa500">//取消注册服务</span>
+            serviceRegistration<span style="color:#dedede">.</span><span style="color:#f25252">Unregister</span><span style="color:#dedede">();</span>
+        <span style="color:#dedede">}</span>
+    <span style="color:#dedede">}</span>
+<span style="color:#dedede">}</span>
+</pre>
+</p>
+5.关注服务的模块订阅获取需要的服务。通过契约接口IHelloWord获取其服务引用<br/>
+<p style="background-color:#323232">
+<pre style="color:#dedede; background-color:#323232; font-size:10pt; font-family:'Courier New';"><span style="color:#f0e68c">using</span> System<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Collections<span style="color:#dedede">.</span>Generic<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Linq<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Text<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">using</span> OSGi<span style="color:#dedede">.</span>NET<span style="color:#dedede">.</span>Core<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> OSGi<span style="color:#dedede">.</span>NET<span style="color:#dedede">.</span>Event<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">using</span> ReferenceLibrary<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">using</span> ServiceContract<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">namespace</span> BundleDemoB
+<span style="color:#dedede">{</span>
+    <span style="color:#f0e68c">public class</span> BundleActivator <span style="color:#dedede">:</span> IBundleActivator
+    <span style="color:#dedede">{</span>
+        
+        <span style="color:#ffa500">/// &lt;summary&gt;</span>
+        <span style="color:#ffa500">/// </span>
+        <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;context&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#f0e68c">public</span> <span style="color:#bdb66b">void</span> <span style="color:#f25252">Start</span><span style="color:#dedede">(</span>IBundleContext context<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+            context<span style="color:#dedede">.</span>ServiceChanged <span style="color:#dedede">+=</span> ContextOnServiceChanged<span style="color:#dedede">;</span>
+            var serviceReference <span style="color:#dedede">=</span> context<span style="color:#dedede">.</span>GetServiceReference<span style="color:#dedede">&lt;</span><font color="#9CDBEF">IHelloWord</font><span style="color:#dedede">&gt;();</span>
+            var service <span style="color:#dedede">=</span> context<span style="color:#dedede">.</span>GetService<span style="color:#dedede">&lt;</span><font color="#9CDBEF">IHelloWord</font><span style="color:#dedede">&gt;(</span>serviceReference<span style="color:#dedede">);</span>
+            service<span style="color:#dedede">.</span><span style="color:#f25252">SayHi</span><span style="color:#dedede">(</span><span style="color:#ffa0a0">&quot;BundleDemoB&quot;</span> <span style="color:#dedede">+</span> ReferenceClass<span style="color:#dedede">.</span><span style="color:#f25252">GetName</span><span style="color:#dedede">());</span>
+        <span style="color:#dedede">}</span>
+
+        <span style="color:#ffa500">/// &lt;summary&gt;</span>
+        <span style="color:#ffa500">/// </span>
+        <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;sender&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;e&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#f0e68c">private</span> <span style="color:#bdb66b">void</span> <span style="color:#f25252">ContextOnServiceChanged</span><span style="color:#dedede">(</span><span style="color:#bdb66b">object</span> sender<span style="color:#dedede">,</span> ServiceEventArgs e<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+            <span style="color:#f0e68c">if</span> <span style="color:#dedede">(</span>e<span style="color:#dedede">.</span><span style="color:#f25252">GetSercieContracts</span><span style="color:#dedede">().</span><span style="color:#f25252">Contains</span><span style="color:#dedede">(</span><span style="color:#f25252">typeof</span><span style="color:#dedede">(</span><font color="#9CDBEF">IHelloWord</font><span style="color:#dedede">).</span>Name<span style="color:#dedede">) &amp;&amp;</span> e<span style="color:#dedede">.</span><span style="color:#f25252">GetState</span><span style="color:#dedede">() ==</span> ServiceEventArgs<span style="color:#dedede">.</span>REGISTERED<span style="color:#dedede">)</span>
+            <span style="color:#dedede">{</span>
+                <span style="color:#ffa500">//模块注册服务，获取感兴趣的服务</span>
+            <span style="color:#dedede">}</span>
+        <span style="color:#dedede">}</span>
+
+        <span style="color:#ffa500">/// &lt;summary&gt;</span>
+        <span style="color:#ffa500">/// </span>
+        <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;context&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#f0e68c">public</span> <span style="color:#bdb66b">void</span> <span style="color:#f25252">Stop</span><span style="color:#dedede">(</span>IBundleContext context<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+            context<span style="color:#dedede">.</span>ServiceChanged <span style="color:#dedede">-=</span> ContextOnServiceChanged<span style="color:#dedede">;</span>
+        <span style="color:#dedede">}</span>
+    <span style="color:#dedede">}</span>
+<span style="color:#dedede">}</span>
+</pre>
+</p>
+6.说明：接口组件定义服务契约，同时被服务实现模块A与服务消费模块B引用。在模块A中对服务契约进行实现，并注册服务。在模块B中通过框架提供的服务获取接口获取服务引用及实例，消费服务。在模块关系上，接口组件属于公共组件，会存放于框架公共组件目录中，而模块A与模块B作为系统模块存放于模块目录中，全部由OSGi框架负责管理加载。
+<br/>
+<br/>
+注：由于Bundle在加载过程中有加载级别的概念（即：加载次序），所以在服务获取时，如模块B优先加载并已注册服务，模块A是可以在其激活器的Start方法中访问服务的，反之如果模块A优先于与模块B加载，则模块A如需访问模块B的服务，可以通过ServiceChanged事件中获取服务，或在相应的触发事件中再获取服务，避免无法获取服务的情况。
+<br/>
+<br/>
+
+</body>
+
+</html>

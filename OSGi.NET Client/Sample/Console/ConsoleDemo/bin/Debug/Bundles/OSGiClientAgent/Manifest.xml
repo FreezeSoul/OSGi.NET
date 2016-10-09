@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bundle AssemblyName="OSGiClientAgent" StartLevel="100">
+  <ServerAddr Value="http://localhost.:8080/"></ServerAddr>
+</Bundle>

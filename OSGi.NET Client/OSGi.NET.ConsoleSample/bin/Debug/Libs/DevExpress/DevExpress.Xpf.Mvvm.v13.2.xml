@@ -1,0 +1,1796 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevExpress.Xpf.Mvvm.v13.2</name>
+    </assembly>
+    <members>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyLocation">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyLocation.AfterPropertiesWithoutSpecifiedLocation">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyLocation.BeforePropertiesWithoutSpecifiedLocation">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.DateTimeDisplayMode">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Xpf.Mvvm.DataAnnotations.DateTimeDisplayMode.Date">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Mvvm.DataAnnotations.DateTimeDisplayMode.DateTime">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Mvvm.DataAnnotations.DateTimeDisplayMode.Time">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.InstanceInitializerAttribute">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.InstanceInitializerAttribute.#ctor(System.Type)">
+            <summary>
+                <para>Initializes a new instance of the InstanceInitializerAttribute class.
+</para>
+            </summary>
+            <param name="type">
+		A <see cref="T:System.Type"/> object that specifies the instance type.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.InstanceInitializerAttribute.#ctor(System.Type,System.String)">
+            <summary>
+                <para>Initializes a new instance of the InstanceInitializerAttribute class.
+</para>
+            </summary>
+            <param name="type">
+		A <see cref="T:System.Type"/> object that specifies the instance type.
+
+            </param>
+            <param name="name">
+		A <see cref="T:System.String"/> value that specifies the instance name.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.InstanceInitializerAttribute.CreateInstance">
+            <summary>
+                <para>Creates an instance of the specified type.
+</para>
+            </summary>
+            <returns>The created instance.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.DataAnnotations.InstanceInitializerAttribute.Name">
+            <summary>
+                <para>Gets the object name.
+</para>
+            </summary>
+            <value>The object name.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.DataAnnotations.InstanceInitializerAttribute.Type">
+            <summary>
+                <para>Gets the type of object to be created.
+</para>
+            </summary>
+            <value>The type of object to be created.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.DataAnnotations.InstanceInitializerAttribute.TypeId">
+            <summary>
+                <para>When implemented in a derived class, gets a unique identifier for this attribute.
+</para>
+            </summary>
+            <value>An object that is a unique identifier for the attribute.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.IDialogService">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IDialogService.ShowDialog(System.Collections.Generic.IList`1,System.Nullable`1,System.String,System.String,System.Object,System.Object,System.Object)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="dialogCommands">
+		 [To be supplied] 
+            </param>
+            <param name="dialogButtons">
+		 [To be supplied] 
+            </param>
+            <param name="title">
+		 [To be supplied] 
+            </param>
+            <param name="documentType">
+		 [To be supplied] 
+            </param>
+            <param name="viewModel">
+		 [To be supplied] 
+            </param>
+            <param name="parameter">
+		 [To be supplied] 
+            </param>
+            <param name="parentViewModel">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.GroupBuilder`1">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.GroupBuilder`1.ContainsProperty``1(System.Linq.Expressions.Expression{System.Func`2})">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="propertyExpression">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.GroupBuilder`1.EndGroup">
+            <summary>
+                <para>Moves the method call chain one level higher.
+</para>
+            </summary>
+            <returns>The metadata builder instance.
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.ISupportServices">
+
+            <summary>
+                <para>Provides a member to access an object containing services.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.ISupportServices.ServiceContainer">
+            <summary>
+                <para>Gets or sets the service container.
+</para>
+            </summary>
+            <value>The service container.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilderBase`3">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilderBase`3.Description(System.String)">
+            <summary>
+                <para>Configures the description of the property.
+</para>
+            </summary>
+            <param name="description">
+		The property's description.
+
+            </param>
+            <returns>The metadata builder instance.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilderBase`3.DisplayName(System.String)">
+            <summary>
+                <para>Configures the display name of the property.
+</para>
+            </summary>
+            <param name="name">
+		The property's display name.
+
+            </param>
+            <returns>The metadata builder instance.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilderBase`3.DisplayShortName(System.String)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="shortName">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilderBase`3.DoNotScaffold">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilderBase`3.LocatedAt(System.Int32,DevExpress.Xpf.Mvvm.DataAnnotations.PropertyLocation)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="position">
+		 [To be supplied] 
+            </param>
+            <param name="propertyLocation">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilderBase`3.NotAutoGenerated">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.IDocumentManagerService">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IDocumentManagerService.CreateDocument(System.String,System.Object,System.Object,System.Object)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="documentType">
+		 [To be supplied] 
+            </param>
+            <param name="viewModel">
+		 [To be supplied] 
+            </param>
+            <param name="parameter">
+		 [To be supplied] 
+            </param>
+            <param name="parentViewModel">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.IDocumentManagerService.Documents">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.ICurrentWindowService">
+
+            <summary>
+                <para>Provides methods to work with a window.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ICurrentWindowService.Activate">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ICurrentWindowService.Close">
+            <summary>
+                <para>Closes the current window.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ICurrentWindowService.Hide">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ICurrentWindowService.SetWindowState(System.Windows.WindowState)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="state">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ICurrentWindowService.Show">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.ViewModelBase">
+
+            <summary>
+                <para>The base class for ViewModels.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ViewModelBase.#ctor">
+            <summary>
+                <para>Initializes a new instance of the ViewModelBase class.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.ViewModelBase.IsInDesignMode">
+            <summary>
+                <para>Gets whether design-time mode is active.
+</para>
+            </summary>
+            <value><b>true</b>, if design-time mode is active; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.ServiceContainer">
+
+            <summary>
+                <para>An object that contains services.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ServiceContainer.#ctor(System.Object)">
+            <summary>
+                <para>Initializes a new instance of the ServiceContainer class with the specified owner.
+</para>
+            </summary>
+            <param name="owner">
+		An object that will be the owner of the created service container.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ServiceContainer.Clear">
+            <summary>
+                <para>Clears services stored in the current service container.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Mvvm.ServiceContainer.Default">
+            <summary>
+                <para>Gets or sets the default service container.
+</para>
+            </summary>
+            <returns>The default service container.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ServiceContainer.GetService``1(System.String,DevExpress.Xpf.Mvvm.ServiceSearchMode)">
+            <summary>
+                <para>Returns the service identified by the specified key.
+</para>
+            </summary>
+            <param name="key">
+		The key associated with the service to be returned. Keys can been assigned to services via the <see cref="M:DevExpress.Xpf.Mvvm.ServiceContainer.RegisterService"/> method.
+
+            </param>
+            <param name="searchMode">
+		A ServiceSearchMode value that specifies whether a search for a service must be carried out within the current service container, or within the current and parent service containers.
+This parameter is optional. The default value is <b>ServiceSearchMode.PreferLocal</b>.
+
+            </param>
+            <returns>A service associated with the specified key.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ServiceContainer.GetService``1(DevExpress.Xpf.Mvvm.ServiceSearchMode)">
+            <summary>
+                <para>Returns the first service that implements the specified interface <i>T</i>.
+</para>
+            </summary>
+            <param name="searchMode">
+		A ServiceSearchMode value that specifies whether a search for a service must be carried out within the current service container, or within the current and parent service containers.
+This parameter is optional. The default value is <b>ServiceSearchMode.PreferLocal</b>.
+
+            </param>
+            <returns>A service object that implements the specified interface <i>T</i>.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ServiceContainer.RegisterService(System.Object)">
+            <summary>
+                <para>Adds the specified service to the current service container.
+</para>
+            </summary>
+            <param name="service">
+		A service to be added to the current service container. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ServiceContainer.RegisterService(System.String,System.Object)">
+            <summary>
+                <para>Adds the specified service to the current service container and associates it with a specific key.
+</para>
+            </summary>
+            <param name="key">
+		A key with which a service is associated.
+
+            </param>
+            <param name="service">
+		A service to be added to the service container.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.NavigationViewModelBase">
+
+            <summary>
+                <para>A View Model for Views between which navigation can be organized if they are placed within a <see cref="T:DevExpress.Xpf.WindowsUI.NavigationFrame"/>.
+</para>
+            </summary>
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.Messenger">
+
+            <summary>
+                <para>Allows you to send messages and register handlers that will process these messages.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.Messenger.#ctor(System.Boolean,DevExpress.Xpf.Mvvm.Native.IActionInvokerFactory)">
+            <summary>
+                <para>Initializes a new instance of the Messenger class with the specified settings.
+</para>
+            </summary>
+            <param name="isMultiThreadSafe">
+		<b>true</b>, if the newly created object is multiple thread safe; otherwise, <b>false</b>.
+
+            </param>
+            <param name="actionInvokerFactory">
+		A factory that creates objects that invoke message handlers.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.Messenger.#ctor(System.Boolean,DevExpress.Xpf.Mvvm.ActionReferenceType)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="isMultiThreadSafe">
+		 [To be supplied] 
+            </param>
+            <param name="actionReferenceType">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.Messenger.#ctor">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.Messenger.Cleanup">
+            <summary>
+                <para>Removes all references to the actions that belong to non-existing recipients.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.Messenger.Default">
+            <summary>
+                <para>Gets or sets the default Messenger object.
+</para>
+            </summary>
+            <value>The default Messenger object.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.Messenger.Register``1(System.Object,System.Object,System.Boolean,System.Action{``0})">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="recipient">
+		 [To be supplied] 
+            </param>
+            <param name="token">
+		 [To be supplied] 
+            </param>
+            <param name="receiveInheritedMessages">
+		 [To be supplied] 
+            </param>
+            <param name="action">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.Messenger.RequestCleanup">
+            <summary>
+                <para>Executes the <see cref="M:DevExpress.Xpf.Mvvm.Messenger.Cleanup"/> method asynchronously when the current application is idle.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.Messenger.Send``1(``0,System.Type,System.Object)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="message">
+		 [To be supplied] 
+            </param>
+            <param name="messageTargetType">
+		 [To be supplied] 
+            </param>
+            <param name="token">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.Messenger.Unregister(System.Object)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="recipient">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.Messenger.Unregister``1(System.Object,System.Object,System.Action{``0})">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="recipient">
+		 [To be supplied] 
+            </param>
+            <param name="token">
+		 [To be supplied] 
+            </param>
+            <param name="action">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.BindableBase">
+
+            <summary>
+                <para>Provides support for the INotifyPropertyChanged interface.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.BindableBase.GetPropertyName``1(System.Linq.Expressions.Expression{System.Func`1})">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="expression">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.Mvvm.BindableBase.PropertyChanged">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.ISupportParentViewModel">
+
+            <summary>
+                <para>Provides a member that allows a Main ViewModel to be passed to a Detail ViewModel. In addition, this allows the Main ViewModel's services to be used within the Detail ViewModel.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.ISupportParentViewModel.ParentViewModel">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.ToolBarItemAttribute">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.ToolBarItemAttribute.#ctor">
+            <summary>
+                <para>Initializes a new instance of the ToolBarItemAttribute class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.DataAnnotations.ToolBarItemAttribute.Page">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.DataAnnotations.ToolBarItemAttribute.PageGroup">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.ISupportParameter">
+
+            <summary>
+                <para>Provides a member that allows data to be passed from a Main to a Detail ViewModel, when these ViewModels are loosely coupled.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.ISupportParameter.Parameter">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.ISplashScreenService">
+
+            <summary>
+                <para>Provides methods to display splash screens.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ISplashScreenService.HideSplashScreen">
+            <summary>
+                <para>Hides the splash screen.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.ISplashScreenService.IsSplashScreenActive">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ISplashScreenService.SetSplashScreenProgress(System.Double,System.Double)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="progress">
+		 [To be supplied] 
+            </param>
+            <param name="maxProgress">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ISplashScreenService.SetSplashScreenState(System.Object)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="state">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ISplashScreenService.ShowSplashScreen(System.String)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="documentType">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.TableGroupContainerLayoutBuilder`1">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.TableGroupContainerLayoutBuilder`1.EndGroupContainer">
+            <summary>
+                <para>Moves the method call chain one level higher.
+</para>
+            </summary>
+            <returns>The table group container builder instance.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.TableGroupContainerLayoutBuilder`1.Group(System.String)">
+            <summary>
+                <para>Configures the property to be displayed within the specified group.
+</para>
+            </summary>
+            <param name="groupName">
+		A group name.
+
+            </param>
+            <returns>The table group layout builder instance.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.TableGroupContainerLayoutBuilder`1.GroupContainer(System.String)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="groupName">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.ISupportNavigation">
+
+            <summary>
+                <para>Provides members that occur when navigating to an object and when navigating away from it.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ISupportNavigation.OnNavigatedFrom">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.ISupportNavigation.OnNavigatedTo">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.INavigationService">
+
+            <summary>
+                <para>Provides members to navigate between Views.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.INavigationService.CanGoBack">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.INavigationService.CanGoForward">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.INavigationService.Current">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.INavigationService.GoBack">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.INavigationService.GoForward">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.INavigationService.Navigate(System.String,System.Object,System.Object)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="target">
+		 [To be supplied] 
+            </param>
+            <param name="param">
+		 [To be supplied] 
+            </param>
+            <param name="parentViewModel">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.INavigationService.Navigate(System.String,System.Object,System.Object,System.Boolean)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="target">
+		 [To be supplied] 
+            </param>
+            <param name="param">
+		 [To be supplied] 
+            </param>
+            <param name="parentViewModel">
+		 [To be supplied] 
+            </param>
+            <param name="saveToJournal">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.IMessenger">
+
+            <summary>
+                <para>Provides methods to send messages and register message handlers.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IMessenger.Register``1(System.Object,System.Object,System.Boolean,System.Action{``0})">
+            <summary>
+                <para>Registers a handler of a specific message type.
+</para>
+            </summary>
+            <param name="recipient">
+		An object that will receive messages.
+
+            </param>
+            <param name="token">
+		An object (marker) that can be used to identify a specific message. <b>null</b> if you want to process messages without tokens.
+<para>
+When sending a message, a token can be assigned to the message via the Send method's parameter. Only message recipients that registered the same token via the Register method are invoked when this message occurs.
+</para>
+
+            </param>
+            <param name="receiveInheritedMessages">
+		<b>true</b> to receive messages of the TMessage type and all derived types; <b>false</b> to receive messages of the TMessage type only.
+
+            </param>
+            <param name="action">
+		An action that will be invoked when the specified message occurs.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IMessenger.Send``1(``0,System.Type,System.Object)">
+            <summary>
+                <para>Sends the specified message.
+</para>
+            </summary>
+            <param name="message">
+		The message of the TMessage type to be sent.
+
+            </param>
+            <param name="messageTargetType">
+		Only recipients of the <i>messageTargetType</i> or inherited type will receive the current message. Set this parameter to <b>null</b> to send a message without an addressee type.
+
+            </param>
+            <param name="token">
+		An object (marker) that can be used to identify a specific message. <b>null</b> if you want to send regular messages (without tokens).
+<para>
+When sending a message, a token can be assigned to the message via the current <i>token</i> parameter. Only message recipients that registered the same token via the Register method are invoked when this message occurs.
+</para>
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IMessenger.Unregister(System.Object)">
+            <summary>
+                <para>Unsubscribes the specified object from receiving any messages.
+</para>
+            </summary>
+            <param name="recipient">
+		An object to be unsubscribed from receiving any messages.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IMessenger.Unregister``1(System.Object,System.Object,System.Action{``0})">
+            <summary>
+                <para>Unsubscribes the specified object's action from being invoked when a specific message occurs.
+</para>
+            </summary>
+            <param name="recipient">
+		An object containing an action to be unsubscribed from receiving the messages of TMessage type.
+
+
+            </param>
+            <param name="token">
+		An object (marker) that was used to identify a specific message when subscribing to it via the Register method. <b>null</b> to unsubscribe from the message regardless of the token assigned to it.
+
+
+            </param>
+            <param name="action">
+		An action to be unsubscribed from receiving messages.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.IMessageBoxService">
+
+            <summary>
+                <para>Provides methods to show dialog boxes.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IMessageBoxService.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult)">
+            <summary>
+                <para>Displays a message box and returns its result.
+</para>
+            </summary>
+            <param name="messageBoxText">
+		The text to be displayed within the message box.
+
+            </param>
+            <param name="caption">
+		The dialog's title.
+
+            </param>
+            <param name="button">
+		A MessageBoxButton value that specifies which button or buttons to display.
+
+            </param>
+            <param name="icon">
+		A MessageBoxImage value that specifies the icon to display.
+
+            </param>
+            <param name="defaultResult">
+		A MessageBoxResult value that specifies the default result of the message box.
+
+            </param>
+            <returns>A MessageBoxResult value that specifies which button has been clicked to close the message box.
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.MetadataBuilder`1">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.MetadataBuilder`1.#ctor">
+            <summary>
+                <para>Initializes a new instance of the MetadataBuilder class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.MetadataBuilder`1.Command(System.Linq.Expressions.Expression`1)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="propertyExpression">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.MetadataBuilder`1.CommandFromMethod(System.Linq.Expressions.Expression`1)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="methodExpression">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.MetadataBuilder`1.DataFormLayout">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.MetadataBuilder`1.Group(System.String)">
+            <summary>
+                <para>Configures the property to be displayed within the specified group.
+</para>
+            </summary>
+            <param name="groupName">
+		A group name.
+
+            </param>
+            <returns>The metadata builder instance.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.MetadataBuilder`1.Property``1(System.Linq.Expressions.Expression{System.Func`2})">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="propertyExpression">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.MetadataBuilder`1.TableLayout">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.MetadataBuilder`1.ToolBarLayout">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.LayoutBuilderBase`2">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.IDocument">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IDocument.Close(System.Boolean)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="force">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.IDocument.Content">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.IDocument.DestroyOnClose">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IDocument.Hide">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.IDocument.Id">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IDocument.Show">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.IDocument.Title">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.IMetadataProvider`1">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.IMetadataProvider`1.BuildMetadata(DevExpress.Xpf.Mvvm.DataAnnotations.MetadataBuilder`1)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="builder">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.HiddenAttribute">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.HiddenAttribute.#ctor">
+            <summary>
+                <para>Initializes a new instance of the HiddenAttribute class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.DXImageAttribute">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.DXImageAttribute.#ctor">
+            <summary>
+                <para>Initializes a new instance of the DXImageAttribute class with the specified owner.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.DXImageAttribute.#ctor(System.String)">
+            <summary>
+                <para>Initializes a new instance of the DXImageAttribute class with the specified image name.
+</para>
+            </summary>
+            <param name="imageName">
+		The image name.
+
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.DataAnnotations.DXImageAttribute.ImageName">
+            <summary>
+                <para>Gets the image name.
+</para>
+            </summary>
+            <value>The image name.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.DataAnnotations.DXImageAttribute.LargeImageUri">
+            <summary>
+                <para>Gets or sets the absolute Uri that defines the location of an image file.
+</para>
+            </summary>
+            <value>A string that is a Uri to the image file.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.DataAnnotations.DXImageAttribute.SmallImageUri">
+            <summary>
+                <para>Gets or sets the Uri that defines the relative location of an image file.
+</para>
+            </summary>
+            <value>A string that is a Uri to the image file.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.ToolBarCategoryLayoutBuilder`1">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.ToolBarCategoryLayoutBuilder`1.Page(System.String)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="pageName">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.ToolBarPageLayoutBuilder`1">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.ToolBarPageLayoutBuilder`1.EndPage">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.ToolBarPageLayoutBuilder`1.PageGroup(System.String)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="pageGroupName">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.DataFormLayoutBuilder`1">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.DataFormLayoutBuilder`1.ContainsProperty``1(System.Linq.Expressions.Expression{System.Func`2})">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="propertyExpression">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.DataFormLayoutBuilder`1.EndGroup">
+            <summary>
+                <para>Moves the method call chain one level higher.
+</para>
+            </summary>
+            <returns>The data form layout builder instance.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.DataFormLayoutBuilder`1.Group(System.String,System.Nullable`1)">
+            <summary>
+                <para>Configures the property to be displayed within the specified group.
+</para>
+            </summary>
+            <param name="groupName">
+		A group name.
+
+            </param>
+            <param name="orientation">
+		A nullable <see cref="T:System.Windows.Controls.Orientation"/> value that specifies whether child items are arranged horizontally or vertically within the group.
+
+            </param>
+            <returns>The data form layout builder instance.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.DataFormLayoutBuilder`1.GroupBox(System.String,System.Nullable`1)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="groupName">
+		 [To be supplied] 
+            </param>
+            <param name="orientation">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.DataFormLayoutBuilder`1.TabbedGroup(System.String)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="groupName">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.CommandParameterAttribute">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.CommandParameterAttribute.#ctor(System.String)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="commandParameter">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.DataAnnotations.CommandParameterAttribute.CommandParameter">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.TableGroupLayoutBuilder`1">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.TableGroupLayoutBuilder`1.ContainsProperty``1(System.Linq.Expressions.Expression{System.Func`2})">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="propertyExpression">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.TableGroupLayoutBuilder`1.EndGroup">
+            <summary>
+                <para>Moves the method call chain one level higher.
+</para>
+            </summary>
+            <returns>The table group container builder instance.
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DelegateCommand`1">
+
+            <summary>
+                <para>A command that calls your parameterized delegates when Execute and CanExecute logic is invoked on the command.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DelegateCommand`1.#ctor(System.Action`1,System.Boolean)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="executeMethod">
+		 [To be supplied] 
+            </param>
+            <param name="useCommandManager">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DelegateCommand`1.#ctor(System.Action`1,System.Func`2,System.Boolean)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="executeMethod">
+		 [To be supplied] 
+            </param>
+            <param name="canExecuteMethod">
+		 [To be supplied] 
+            </param>
+            <param name="useCommandManager">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DelegateCommand`1.CanExecute(DevExpress.Xpf.Mvvm.T)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="parameter">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.Mvvm.DelegateCommand`1.CanExecuteChanged">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DelegateCommand`1.Execute(DevExpress.Xpf.Mvvm.T)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="parameter">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DelegateCommand`1.RaiseCanExecuteChanged">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.IServiceContainer">
+
+            <summary>
+                <para>Provides methods to retrieve services and register them in a service container.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IServiceContainer.Clear">
+            <summary>
+                <para>Clears services stored in the current service container.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IServiceContainer.GetService``1(System.String,DevExpress.Xpf.Mvvm.ServiceSearchMode)">
+            <summary>
+                <para>Returns the service identified by the specified key.
+</para>
+            </summary>
+            <param name="key">
+		The key associated with the service to be returned. Keys can been assigned to services via the <see cref="M:DevExpress.Xpf.Mvvm.ServiceContainer.RegisterService"/> method.
+
+            </param>
+            <param name="searchMode">
+		A ServiceSearchMode value that specifies whether a search for a service must be carried out within the current service container, or within the current and parent service containers.
+This parameter is optional. The default value is <b>ServiceSearchMode.PreferLocal</b>.
+
+            </param>
+            <returns>A service associated with the specified key.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IServiceContainer.GetService``1(DevExpress.Xpf.Mvvm.ServiceSearchMode)">
+            <summary>
+                <para>Returns the first service that implements the specified interface <i>T</i>.
+</para>
+            </summary>
+            <param name="searchMode">
+		A ServiceSearchMode value that specifies whether a search for a service must be carried out within the current service container, or within the current and parent service containers.
+This parameter is optional. The default value is <b>ServiceSearchMode.PreferLocal</b>.
+
+            </param>
+            <returns>A service associated with the specified key.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IServiceContainer.RegisterService(System.Object)">
+            <summary>
+                <para>Adds the specified service to the current service container.
+</para>
+            </summary>
+            <param name="service">
+		A service to be added to the current service container. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IServiceContainer.RegisterService(System.String,System.Object)">
+            <summary>
+                <para>Adds the specified service to the current service container and associates it with a specific key.
+</para>
+            </summary>
+            <param name="key">
+		A key with which a service is associated.
+
+            </param>
+            <param name="service">
+		A service to be added to the service container.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.ToolBarPageGroupLayoutBuilder`1">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.ToolBarPageGroupLayoutBuilder`1.EndPageGroup">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DelegateCommand">
+
+            <summary>
+                <para>A command that calls your parameterless delegates when Execute and CanExecute logic is invoked on the command.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DelegateCommand.#ctor(System.Action,System.Boolean)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="executeMethod">
+		 [To be supplied] 
+            </param>
+            <param name="useCommandManager">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DelegateCommand.#ctor(System.Action,System.Func`1,System.Boolean)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="executeMethod">
+		 [To be supplied] 
+            </param>
+            <param name="canExecuteMethod">
+		 [To be supplied] 
+            </param>
+            <param name="useCommandManager">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.ToolBarLayoutBuilder`1">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.ToolBarLayoutBuilder`1.DefaultCategory">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilder`2">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilder`2.EndProperty">
+            <summary>
+                <para>Moves the method call chain one level higher.
+</para>
+            </summary>
+            <returns>The metadata builder instance.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilder`2.Hidden">
+            <summary>
+                <para>Configures the property to be hidden.
+</para>
+            </summary>
+            <returns>The metadata builder instance.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilder`2.Initializer``1(System.Func{``0},System.String)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="createDelegate">
+		 [To be supplied] 
+            </param>
+            <param name="name">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilder`2.MaxLength(System.Int32)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="maxLength">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilder`2.NotEditable">
+            <summary>
+                <para>Configures the property to be not editable.
+</para>
+            </summary>
+            <returns>The metadata builder instance.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilder`2.ReadOnly">
+            <summary>
+                <para>Configures the property to be read-only.
+</para>
+            </summary>
+            <returns>The metadata builder instance.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.DataAnnotations.PropertyMetadataBuilder`2.Required">
+            <summary>
+                <para>Specifies that a data field value is required.
+</para>
+            </summary>
+            <returns>The metadata builder instance.
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Mvvm.IDocumentViewModel">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Mvvm.IDocumentViewModel.Close">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Mvvm.IDocumentViewModel.Title">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+    </members>
+</doc>

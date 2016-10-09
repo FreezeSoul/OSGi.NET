@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="OsgiDllTool.View.BundleInfoSetView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Right"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="95"></Setter>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="IsReadOnly" Value="True"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+        </Style>
+        <DataTemplate x:Key="ItemDateTemplate">
+            <TextBlock Margin="2 0 2 0"  Text="{Binding Path}" />
+        </DataTemplate>
+    </UserControl.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="15">
+            <DockPanel>
+                <TextBlock Text="Boundle主文件："></TextBlock>
+                <Button Content="..." ToolTip="选择文件" x:Name="btnAssemblyNamePath" DockPanel.Dock="Right"
+                    Click="BtnAssemblyNamePath_OnClick"></Button>
+                <TextBox IsReadOnly="True" x:Name="txtAssemblyNamePath"></TextBox>
+            </DockPanel>
+            <DockPanel Margin="0 15 0 0" >
+                <TextBlock Text="引用文件："></TextBlock>
+                <Button Content="..." ToolTip="选择文件" x:Name="btnLibsPath" 
+                    VerticalAlignment="Top"
+                    Height="{Binding ElementName=btnAssemblyNamePath,Path=ActualHeight}"
+                    DockPanel.Dock="Right" Click="BtnLibsPath_OnClick"></Button>
+                <ListBox SelectionMode="Extended"  MinHeight="50" MaxHeight="200" x:Name="listLibsPath"
+                     KeyDown="List_OnKeyDown"
+                     ItemTemplate="{StaticResource ItemDateTemplate}"></ListBox>
+            </DockPanel>
+            <DockPanel Margin="0 15 0 0" >
+                <TextBlock Text="ShareLib文件："></TextBlock>
+                <Button Content="..." ToolTip="选择文件" x:Name="btnShareLibsPath"
+                    VerticalAlignment="Top"
+                    Height="{Binding ElementName=btnAssemblyNamePath,Path=ActualHeight}"
+                    DockPanel.Dock="Right" Click="BtnShareLibsPath_OnClick"></Button>
+                <ListBox SelectionMode="Extended" MinHeight="50" 
+                      KeyDown="List_OnKeyDown"
+                     MaxHeight="200" x:Name="listShareLibsPath" ItemTemplate="{StaticResource ItemDateTemplate}"></ListBox>
+            </DockPanel>
+            <DockPanel Margin="0 15 0 0" LastChildFill="False">
+                <TextBlock Text="加载级别："  ></TextBlock>
+                <TextBox IsReadOnly="False" x:Name="txtStartLevel" Width="120"></TextBox>
+            </DockPanel>
+            <DockPanel Margin="0 15 0 0" LastChildFill="False">
+                <TextBlock Text="调试模式："></TextBlock>
+                <CheckBox x:Name="checkBoxIsDebug" Click="CheckBoxIsDebug_OnClick" RenderTransformOrigin="0.912,0.667"></CheckBox>
+            </DockPanel>
+            <WrapPanel Margin="0 15 0 0" HorizontalAlignment="Right">
+                <Button  x:Name="btnSave" Click="BtnSave_OnClick">
+                    <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                        <Image  Source="/OsgiDllTool;Component/Images/save.png" Width="24" Height="24" />
+                        <TextBlock Width="25" VerticalAlignment="Center" Margin="2 0 2 0" Text="保存" />
+                    </StackPanel>
+                </Button>
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

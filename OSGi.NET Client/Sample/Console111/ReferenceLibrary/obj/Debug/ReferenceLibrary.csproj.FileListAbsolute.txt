@@ -1,0 +1,5 @@
+D:\OSGi.NET\OSGi.NET\Sample\Console\ReferenceLibrary\bin\Debug\ReferenceLibrary.dll
+D:\OSGi.NET\OSGi.NET\Sample\Console\ReferenceLibrary\bin\Debug\ReferenceLibrary.pdb
+D:\OSGi.NET\OSGi.NET\Sample\Console\ReferenceLibrary\obj\Debug\ReferenceLibrary.csprojResolveAssemblyReference.cache
+D:\OSGi.NET\OSGi.NET\Sample\Console\ReferenceLibrary\obj\Debug\ReferenceLibrary.dll
+D:\OSGi.NET\OSGi.NET\Sample\Console\ReferenceLibrary\obj\Debug\ReferenceLibrary.pdb

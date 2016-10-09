@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="no-js">
+    {{template "base/header.html" .}}
+    <body>
+        {{template "base/navbar.html" .}}
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3" id="sidebar">
+                    {{$pluginid := .pluginid}}
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                        {{range .versions}}
+                        <li>
+                            <a href="/pluginversion?pluginid={{$pluginid}}&version={{.Version}}"><i class="icon-chevron-right"></i>Version: {{.Version}}</a>
+                        </li>
+                        {{end}}
+                        <li>
+                            <a class="page-scroll" href="/plugindetail?pluginid={{.pluginid}}"><i class="icon-arrow-left" style="opacity: .3;"></i> 返回</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/span-->
+                <div class="span9" id="content">
+                   <div class="row-fluid">
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left"> 提交版本</div>
+                            </div>
+                            <div class="alert alert-info alert-block hide" style="margin:20px;">
+                                <a class="close" data-dismiss="alert" href="#">&times;</a>
+                                <h4 class="alert-heading">提示!</h4>
+                                版本信息保存成功. 
+                            </div>
+                            <div class="alert alert-error validation-error hide" style="margin:20px;">
+                                <button class="close" data-dismiss="alert"></button>
+                                请确认版本信息填写完整!
+                            </div>
+                            <div class="alert alert-success validation-success hide" style="margin:20px;">
+                                <button class="close" data-dismiss="alert"></button>
+                                版本信息填写正确.
+                            </div>
+                            <div class="block-content collapse in">
+                               <div class="span12">
+                                     <form class="form-horizontal" enctype="multipart/form-data" id="pluginform" name="pluginform" action="" method="post">
+                                      <fieldset>
+                                        <legend style="font-size:16px;">请填写版本信息</legend>
+                                         <div class="control-group">
+                                              <label class="control-label" for="version">版本编号<span class="required">*</span></label>
+                                              <div class="controls">
+                                                <input type="hidden" value="{{.pluginid}}" name="pluginid" id="pluginid">
+                                                <input type="text" value="{{.version}}"  placeholder="版本编号(1.0.0) ..." class="span8" name="version" id="version">
+                                              </div>
+                                        </div>
+                                        <div class="control-group">
+                                              <label class="control-label" for="traceinfo">版本说明<span class="required">*</span></label>
+                                              <div class="controls">
+                                                <textarea class="span8 textarea" placeholder="版本说明 ..." style="height: 100px" name="traceinfo" id="traceinfo">{{.traceinfo}}</textarea>
+                                              </div>
+                                        </div>
+                                        <div class="control-group">
+                                              <label class="control-label" for="plugininterface">接口文件</label>
+                                              <div class="controls">
+                                                <input class="input-file uniform_on" name="plugininterface" id="plugininterface" type="file">
+                                              </div>
+                                        </div>
+                                         <div class="control-group">
+                                              <label class="control-label" for="pluginpackage">插件文件<span class="required">*</span></label>
+                                              <div class="controls">
+                                                <input class="input-file uniform_on" name="pluginpackage" id="pluginpackage" type="file">
+                                              </div>
+                                        </div>
+                                        <div class="form-actions">
+                                          <button type="submit" style="width:100px;" class="btn btn-primary">保存</button>
+                                        </div>
+                                      </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {{template "base/footer.html" .}}
+        </div>
+        <link href="/static/vendors/uniform.default.css" rel="stylesheet" media="screen">
+
+        <script type="text/javascript" src="/static/vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="/static/vendors/mask/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="/static/vendors/jquery.uniform.min.js"></script>
+
+        <script type="text/javascript" src="/static/javascript/util.js"></script>
+        <script type="text/javascript" src="/static/javascript/publishplugin.js"></script>
+
+        <style type="text/css">
+        .uploader .help-inline{
+            line-height: 25px;
+        }
+        </style>
+    </body>
+</html>

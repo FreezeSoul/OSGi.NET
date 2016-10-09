@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bundle AssemblyName="BundleDemoA" StartLevel="1">
+  <ExtensionPoint Point="BundleDemoA.ExtensionA" />
+</Bundle>

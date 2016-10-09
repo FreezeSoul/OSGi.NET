@@ -1,0 +1,15 @@
+2014-07-09 14:32:17,195 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架读取元数据信息！
+2014-07-09 14:32:17,278 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架初始化开始！
+2014-07-09 14:32:17,281 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架读取配置！
+2014-07-09 14:32:17,286 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架加载共享程序集！
+2014-07-09 14:32:17,294 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架关联共享程序集[Microsoft.VisualStudio.HostingProcess.Utilities]！
+2014-07-09 14:32:17,295 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架关联共享程序集[Microsoft.VisualStudio.HostingProcess.Utilities.Sync]！
+2014-07-09 14:32:17,296 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架关联共享程序集[Microsoft.VisualStudio.Debugger.Runtime]！
+2014-07-09 14:32:17,296 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架关联共享程序集[vshost]！
+2014-07-09 14:32:17,297 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架关联共享程序集[mscorlib.resources]！
+2014-07-09 14:32:17,298 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架关联共享程序集[MainApp]！
+2014-07-09 14:32:17,299 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架关联共享程序集[log4net]！
+2014-07-09 14:32:17,302 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架读取模块信息！
+2014-07-09 14:32:17,449 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架初始化结束！
+2014-07-09 14:32:17,454 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架启动开始！
+2014-07-09 14:32:17,482 [9] DEBUG OSGi.NET.Core.Root.Framework [(null)] - 框架启动完成！

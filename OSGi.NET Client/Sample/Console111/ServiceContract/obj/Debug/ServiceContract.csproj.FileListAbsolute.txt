@@ -1,0 +1,5 @@
+D:\OSGi.NET\OSGi.NET\Sample\Console\ServiceContract\bin\Debug\ServiceContract.dll
+D:\OSGi.NET\OSGi.NET\Sample\Console\ServiceContract\bin\Debug\ServiceContract.pdb
+D:\OSGi.NET\OSGi.NET\Sample\Console\ServiceContract\obj\Debug\ServiceContract.csprojResolveAssemblyReference.cache
+D:\OSGi.NET\OSGi.NET\Sample\Console\ServiceContract\obj\Debug\ServiceContract.dll
+D:\OSGi.NET\OSGi.NET\Sample\Console\ServiceContract\obj\Debug\ServiceContract.pdb

@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="OsgiDllTool.View.ProjectSetView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Right"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="87"></Setter>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="IsReadOnly" Value="True"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Margin="15">
+        <!--//  _project.BoundlePath
+                //_project.ShareLibPath Boundle目录 ShareLib目录-->
+        <DockPanel>
+            <TextBlock Text="Boundle目录："></TextBlock>
+            <Button Content="..." ToolTip="选择目录" x:Name="btnBoundlePath" DockPanel.Dock="Right" Click="BtnBoundlePath_OnClick"></Button>
+            <TextBox x:Name="txtBoundlePath" ></TextBox>
+        </DockPanel>
+        <DockPanel Margin="0 15 0 15" >
+            <TextBlock Text="ShareLib目录："></TextBlock>
+            <Button Content="..." ToolTip="选择目录" x:Name="btnShareLibPath" DockPanel.Dock="Right" Click="BtnShareLibPath_OnClick"></Button>
+            <TextBox x:Name="txtShareLibPath" ></TextBox>
+        </DockPanel>
+        <WrapPanel  HorizontalAlignment="Right">
+            <Button  x:Name="btnSave" Click="BtnSave_OnClick">
+                <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                    <Image  Source="/OsgiDllTool;Component/Images/save.png" Width="24" Height="24" />
+                    <TextBlock VerticalAlignment="Center" Margin="2 0 2 0" Text="保存" Width="25" />
+                </StackPanel>
+            </Button>
+        </WrapPanel>
+    </StackPanel>
+</UserControl>

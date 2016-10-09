@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="no-js">
+    {{template "base/header.html" .}}
+    <body>
+        {{template "base/navbar.html" .}}
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3" id="sidebar">
+                    {{$plugintypeid := .plugintypeid}}
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                        <li class='{{isactive $plugintypeid ""}}'>
+                            <a href="/shareplugin"><i class="icon-chevron-right"></i> 公共插件</a>
+                        </li>
+                        {{range .types}}
+                            <li class="{{isactive $plugintypeid .PluginTypeId}}">
+                                <a href="/shareplugin?typeid={{.PluginTypeId}}"><i class="icon-arrow-right" style="opacity: .3;"></i><span class="badge badge-info pull-right">{{.PluginCount}}</span> {{.PluginTypeName}}</a>
+                            </li>
+                        {{end}}
+                        <li>
+                            <a href="/projectplugin"><i class="icon-chevron-right"></i> 项目管理</a>
+                        </li>
+                        <li>
+                            <a href="/submitplugin"><i class="icon-upload" style="opacity: .3;margin-top:3px;"></i> 提交插件</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/span-->
+                <div class="span9" id="content">
+                    <div class="block">
+                        <div class="navbar navbar-inner block-header">
+                            <div class="muted pull-left">插件列表</div>
+                        </div>
+                        <div class="block-content collapse in">
+                            <div class="span12">
+                                <style type="text/css">  
+                                    .pluglistContent{ width:100%; float:left;}   
+                                    .pluglistContent ul{ width:100%; margin: 0px;}   
+                                    .pluglistContent li{ width:50%; float:left; display:block;}   
+                                    .plugintitle{ margin: 10px; font-weight: bolder; font-size: 14px;clear: right;}
+                                    .pluginintro{ margin: 10px;  font-size: 12px; text-indent: 2em;clear: left;height: 40px; overflow:hidden;}
+                                    .plugindata{ margin: 10px;}
+                                    .pluginimage,.plugininfo{float:left;margin: 10px;}
+                                    .plugininfo{ padding-top: 20px;font-size: 12px; color: #525552}
+                                    .plugininfo lable{ margin-right: 4px;}
+                                    .linkSpan:link,.linkSpan:hover,.linkSpan:visited{ 
+                                        -webkit-border-radius: 5px; 
+                                        -moz-border-radius: 5px; 
+                                        border-radius: 5px;
+                                        padding: 5px 10px; 
+                                        background-color:#EFEFF7; 
+                                        color: #000000; }
+                                </style>  
+                                <div class="pluglistContent"> 
+                                    <ul>  
+                                        {{range .plugins}}
+                                            <li>
+                                                <div class="plugintitle"><i class="icon-info-sign" style="margin-top:5px;"></i> <a class="linkSpan" href='/plugindetail?pluginid={{.PluginId}}'>{{.PluginName}}</a></div>
+                                                <div>
+                                                <div class="plugindata">
+                                                    <div class="pluginimage">
+                                                        <a href='/plugindetail?pluginid={{.PluginId}}'><img id="pluginimagepreview" src="{{.PluginImage}}" class="img-rounded" alt="插件图片" style="height:120px; width:120px;border:0px;"/></a>
+                                                    </div>
+                                                    <div class="plugininfo">
+                                                    <blockquote>
+                                                        <div class="plugininforow"><lable>插件类型：</lable>{{.PluginTypeName}}</div>
+                                                        <div class="plugininforow"><lable>插件作者：</lable>{{.PluginAuthor}}</div>
+                                                        <div class="plugininforow"><lable>创建时间：</lable>{{dateformat  .CreateTime  "2006-01-02 15:04:05"}}</div>
+                                                        <div class="plugininforow"><lable>更新时间：</lable>{{dateformat  .UpdateTime  "2006-01-02 15:04:05"}}</div>
+                                                        <div class="plugininforow"><lable>最新版本：</lable>{{.LastVersion}}</div>
+                                                    </blockquote>
+                                                    </div>
+                                                </div>
+                                                <div class="pluginintro">{{.PluginIntro}}</div>
+                                            </li>
+                                        {{end}} 
+                                    </ul>  
+                                </div>  
+                                <div class="pagination" style="text-align:center;">
+                                    <ul>
+                                        {{$currentpage := .currentpage}}
+                                        {{$typeid := .plugintypeid}}
+                                        <li><a href="/shareplugin?page={{.prevpage}}&typeid={{$typeid}}">上一页</a></li>
+                                        {{range .pages}}
+                                        <li class='{{isactive $currentpage .}}'>
+                                            <a href='/shareplugin?page={{.}}&typeid={{$typeid}}'>{{.}}</a>
+                                        </li>
+                                        {{end}} 
+                                        <li><a href="/shareplugin?page={{.nextpage}}&typeid={{$typeid}}">下一页</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {{template "base/footer.html" .}}
+        </div>
+    </body>
+</html>

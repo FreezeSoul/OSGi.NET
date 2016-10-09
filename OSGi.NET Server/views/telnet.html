@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="no-js">
+    {{template "base/header.html" .}}
+    <body>
+        {{template "base/navbar.html" .}}
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3" id="sidebar">
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                        <li>
+                            <a href="/manager"><i class="icon-chevron-right"></i> 客户端列表</a>
+                        </li>
+                        <li class="active">
+                            <a href="/telnet"><i class="icon-chevron-right"></i> 客户端控制</a>
+                        </li>
+                         <li>
+                            <a href="#"><i class="icon-chevron-right"></i> 客户端日志</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!--/span-->
+                <div class="span9" id="content">
+                  <div class="block">
+                        <div class="navbar navbar-inner block-header">
+                            <div class="muted pull-left">客户端控制</div>
+                        </div>
+                        <div class="block-content collapse in">
+                            <div class="span12">
+                                <div style="float:left; margin-left:30px;">
+                                  <label style="float:left;line-height:30px;">IP地址</label>
+                                  <div class="controls" style="float:left; margin-left:10px;">
+                                    <input class="input-xlarge focused" id="ip" type="text" value="{{.Ip}}">
+                                  </div>
+                                </div>
+                                <div style="float:left; margin-left:30px;">
+                                  <label style="float:left;line-height:30px;">端口号</label>
+                                  <div class="controls" style="float:left; margin-left:10px;">
+                                    <input class="input-xlarge" id="port" type="text" value="{{.Port}}">
+                                  </div>
+                                </div>
+                                <div style="float:left; margin-left:30px;">
+                                  <button type="button" id="connectBtn" class="btn btn-primary">连接</button>
+                                </div>
+                            </div>
+                            <div style="margin:auto auto 10px 30px;">
+                                <div id="outputWin" style="width:90%;height:400px;border: solid 1px #999999;border-top-color: #CCCCCC;border-left-color: #CCCCCC;padding: 5px;overflow-y: scroll;line-height:12px;background-color:black;color:#cccccc"></div>
+                            </div>
+                            <div style="margin-left:30px;">
+                                <input class="input-xlarge" style="width:90%;background-color:#F7F7F7;" id="commandInput" type="text">
+                                <input id="mac" type="hidden" value="{{.Mac}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {{template "base/footer.html" .}}
+        </div>
+        <!--/.fluid-container-->
+        <script src="/static/vendors/isLoading/jquery.isloading.min.js"></script>
+        <link href="/static/vendors/jGrowl/jquery.jgrowl.css" rel="stylesheet" media="screen">
+        <script src="/static/vendors/jGrowl/jquery.jgrowl.js"></script>
+        <script src="/static/javascript/telnet.js"></script>
+        <style type="text/css">
+            .icon-loading {
+              margin-left: 10px;
+              display: inline-block;
+              width: 30px;
+              height: 30px;
+              background: url('/static/images/loading.gif') no-repeat;
+            }
+        </style>
+    </body>
+
+</html>

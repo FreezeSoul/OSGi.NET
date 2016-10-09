@@ -1,0 +1,30 @@
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs\Scs\bin\Release\Scs.XML
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs\Scs\bin\Release\Scs.dll
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs\Scs\bin\Release\Scs.pdb
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs\Scs\obj\Release\ResolveAssemblyReference.cache
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs\Scs\obj\Release\Scs.dll
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs\Scs\obj\Release\Scs.pdb
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs-Sources\Scs\bin\Release\Scs.XML
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs-Sources\Scs\bin\Release\Scs.dll
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs-Sources\Scs\bin\Release\Scs.pdb
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs-Sources\Scs\obj\Release\ResolveAssemblyReference.cache
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs-Sources\Scs\obj\Release\Scs.dll
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs-Sources\Scs\obj\Release\Scs.pdb
+D:\Halil\Özel\Makalelerim\Scs\Projects\Scs-Sources\Scs\bin\Release\Scs.XML
+D:\Halil\Özel\Makalelerim\Scs\Projects\Scs-Sources\Scs\bin\Release\Scs.dll
+D:\Halil\Özel\Makalelerim\Scs\Projects\Scs-Sources\Scs\bin\Release\Scs.pdb
+D:\Halil\Özel\Makalelerim\Scs\Projects\Scs-Sources\Scs\obj\Release\ResolveAssemblyReference.cache
+D:\Halil\Özel\Makalelerim\Scs\Projects\Scs-Sources\Scs\obj\Release\Scs.dll
+D:\Halil\Özel\Makalelerim\Scs\Projects\Scs-Sources\Scs\obj\Release\Scs.pdb
+C:\Documents and Settings\halil.kalkan\Desktop\TCPServClntCommRMIFrmwrk\Scs-Sources\Scs-Sources\Scs\bin\Release\Scs.XML
+C:\Documents and Settings\halil.kalkan\Desktop\TCPServClntCommRMIFrmwrk\Scs-Sources\Scs-Sources\Scs\bin\Release\Scs.dll
+C:\Documents and Settings\halil.kalkan\Desktop\TCPServClntCommRMIFrmwrk\Scs-Sources\Scs-Sources\Scs\bin\Release\Scs.pdb
+C:\Documents and Settings\halil.kalkan\Desktop\TCPServClntCommRMIFrmwrk\Scs-Sources\Scs-Sources\Scs\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\halil.kalkan\Desktop\TCPServClntCommRMIFrmwrk\Scs-Sources\Scs-Sources\Scs\obj\Release\Scs.dll
+C:\Documents and Settings\halil.kalkan\Desktop\TCPServClntCommRMIFrmwrk\Scs-Sources\Scs-Sources\Scs\obj\Release\Scs.pdb
+F:\Work\启明星\OSGi.NET\packages\Scs\Scs-Sources\Scs\bin\Release\Scs.XML
+F:\Work\启明星\OSGi.NET\packages\Scs\Scs-Sources\Scs\bin\Release\Scs.dll
+F:\Work\启明星\OSGi.NET\packages\Scs\Scs-Sources\Scs\bin\Release\Scs.pdb
+F:\Work\启明星\OSGi.NET\packages\Scs\Scs-Sources\Scs\obj\Release\Scs.csprojResolveAssemblyReference.cache
+F:\Work\启明星\OSGi.NET\packages\Scs\Scs-Sources\Scs\obj\Release\Scs.dll
+F:\Work\启明星\OSGi.NET\packages\Scs\Scs-Sources\Scs\obj\Release\Scs.pdb

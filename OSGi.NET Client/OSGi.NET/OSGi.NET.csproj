@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DDE9E40C-E908-4AA5-850F-9790E8F5FC50}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OSGi.NET</RootNamespace>
+    <AssemblyName>OSGi.NET</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\OSGi.NET.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\ICSharpCode.SharpZipLib.dll.0.85.4.369\lib\net20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\BundleConst.cs" />
+    <Compile Include="Core\BundleContext.cs" />
+    <Compile Include="Core\Bundle.cs" />
+    <Compile Include="Core\Root\FrameworkFactory.cs" />
+    <Compile Include="Core\Root\IFrameworkFactory.cs" />
+    <Compile Include="Core\Root\IFrameworkInstaller.cs" />
+    <Compile Include="Core\Root\IFrameworkListener.cs" />
+    <Compile Include="Core\Root\IFrameworkService.cs" />
+    <Compile Include="Event\BundleEventArgs.cs" />
+    <Compile Include="Event\ExtensionEventArgs.cs" />
+    <Compile Include="Event\IFrameworkFireEvent.cs" />
+    <Compile Include="Event\ServiceEventArgs.cs" />
+    <Compile Include="Extension\ExtensionData.cs" />
+    <Compile Include="Extension\ExtensionPoint.cs" />
+    <Compile Include="Event\IContextFireEvent.cs" />
+    <Compile Include="Listener\IBundleListener.cs" />
+    <Compile Include="Listener\IExtensionListener.cs" />
+    <Compile Include="Listener\IServiceListener.cs" />
+    <Compile Include="Provider\BundleAssemblyProvider.cs" />
+    <Compile Include="Core\Root\Framework.cs" />
+    <Compile Include="Core\IBundle.cs" />
+    <Compile Include="Core\IBundleActivator.cs" />
+    <Compile Include="Core\IBundleContext.cs" />
+    <Compile Include="Core\Root\IFramework.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\BundleConfigProvider.cs" />
+    <Compile Include="Service\IServiceReference.cs" />
+    <Compile Include="Service\IServiceRegistration.cs" />
+    <Compile Include="Service\ServiceReference.cs" />
+    <Compile Include="Service\ServiceRegistration.cs" />
+    <Compile Include="Utils\AssemblyResolver.cs" />
+    <Compile Include="Utils\BundleUtils.cs" />
+    <Compile Include="Utils\CustomAssemblyResolver.cs" />
+    <Compile Include="Utils\MonoAssemblyResolver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\log4net.config" />
+    <None Include="Config\OSGi.NET.properties" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\Manifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

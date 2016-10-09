@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html class="no-js">
+    {{template "base/header.html" .}}
+    <body>
+        {{template "base/navbar.html" .}}
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3" id="sidebar">
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                        <li class="active">
+                            <a href="/manager"><i class="icon-chevron-right"></i> 客户端列表</a>
+                        </li>
+                        <li>
+                            <a href="/telnet"><i class="icon-chevron-right"></i> 客户端控制</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="icon-chevron-right"></i> 客户端日志</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/span-->
+                <div class="span9" id="content">
+                    <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">客户端列表</div>
+                            </div>
+                            <div class="block-content collapse in">
+                                <div class="span12">
+                                    <table class="table table-striped">
+                                      <thead>
+                                        <tr>
+                                          <th>登录系统</th>
+                                          <th>IP地址</th>
+                                          <th>MAC地址</th>
+                                          <th>登录时间</th>
+                                          <th>主机状态</th>
+                                          <th>主机信息</th>
+                                          <th>远程控制</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        {{range .clients}}
+                                            <tr>
+                                                <td>{{.SystemName}}</td>
+                                                <td>{{.ClientIp}}</td>
+                                                <td>{{.ClientMac}}</td>
+                                                <td>{{dateformat  .LaunchTime  "2006-01-02 15:04:05"}}</td>
+                                                <td><span class="status label">{{.Status}}</span></td>
+                                                <td><a href="#myModal{{index true}}" data-toggle="modal">查看</a>
+                                                <div id="myModal{{index false}}" style="width:600px;" class="modal hide">
+                                                    <div class="modal-header">
+                                                        <button data-dismiss="modal" class="close" type="button">&times;</button>
+                                                        <h3>主机系统信息</h3>
+                                                    </div>
+                                                    <div class="modal-body" style="overflow-x:auto;">
+                                                        <pre>{{.SystemInfo}}</pre>
+                                                    </div>
+                                                </div>
+                                                </td>
+                                                <td><a href="/telnet?ip={{.ClientIp}}&port={{.MonitorPort}}&mac={{.ClientMac}}">管理</a></td>
+                                            </tr>
+                                        {{end}}
+                                      </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <hr>
+            {{template "base/footer.html" .}}
+        </div>
+        <script src="/static/javascript/manager.js"></script>
+    </body>
+</html>

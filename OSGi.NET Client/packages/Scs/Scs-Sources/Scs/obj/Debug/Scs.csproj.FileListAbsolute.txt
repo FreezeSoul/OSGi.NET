@@ -1,0 +1,11 @@
+E:\Halil\Çalışmalarım\C#.NET\ScsLib\Scs\Scs\obj\Debug\ResolveAssemblyReference.cache
+E:\Halil\Çalışmalarım\C#.NET\ScsLib\Scs\Scs\bin\Debug\Scs.dll
+E:\Halil\Çalışmalarım\C#.NET\ScsLib\Scs\Scs\bin\Debug\Scs.pdb
+E:\Halil\Çalışmalarım\C#.NET\ScsLib\Scs\Scs\obj\Debug\Scs.dll
+E:\Halil\Çalışmalarım\C#.NET\ScsLib\Scs\Scs\obj\Debug\Scs.pdb
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs\Scs\bin\Debug\Scs.XML
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs\Scs\bin\Debug\Scs.dll
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs\Scs\bin\Debug\Scs.pdb
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs\Scs\obj\Debug\ResolveAssemblyReference.cache
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs\Scs\obj\Debug\Scs.dll
+E:\Halil\Makalelerim\CodeProject.com\Scs\Projects\Scs\Scs\obj\Debug\Scs.pdb

@@ -1,0 +1,112 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type"/>
+    <title>如何使用激活器</title>
+</head>
+
+<body>
+<h3>模块激活器作为OSGi.NET中模块的启动装置，负责处理模块的启动和停止操作，对模块提供了访问上下文对象。</h3>
+<p>
+任何一个模块都需要包含一个启动激活器，激活器继承自IBundleActivator接口，实现Start和Stop方法，下面是一个激活器及其实现示例。
+</p>
+
+<p style="background-color:#323232">
+<pre style="color:#dedede; background-color:#323232; font-size:10pt; font-family:'Courier New';"><span style="color:#f0e68c">public interface</span> IBundleActivator
+<span style="color:#dedede">{</span>
+   <span style="color:#ffa500">/// &lt;summary&gt;</span>
+   <span style="color:#ffa500">/// 插件启动入口。当插件被启动时，如果指定了激活器时，内核会调用激活器的Start方法来完成插件启动。</span>
+   <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+   <span style="color:#ffa500">/// &lt;param name=&quot;context&quot;&gt;当前插件上下文。&lt;/param&gt;</span>
+   <span style="color:#bdb66b">void</span> <span style="color:#f25252">Start</span><span style="color:#dedede">(</span>IBundleContext context<span style="color:#dedede">);</span>
+
+    <span style="color:#ffa500">/// &lt;summary&gt;</span>
+    <span style="color:#ffa500">/// 插件停止入口。当插件被停止时，如果指定了激活器时，内核会调用激活器的Stop方法来完成插件停止。</span>
+    <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+   <span style="color:#ffa500">/// &lt;param name=&quot;context&quot;&gt;当前插件上下文。&lt;/param&gt;</span>
+    <span style="color:#bdb66b">void</span> <span style="color:#f25252">Stop</span><span style="color:#dedede">(</span>IBundleContext context<span style="color:#dedede">);</span>
+<span style="color:#dedede">}</span>
+</pre>
+</p>
+
+<p style="background-color:#323232">
+<pre style="color:#dedede; background-color:#323232; font-size:10pt; font-family:'Courier New';"><span style="color:#f0e68c">using</span> System<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Collections<span style="color:#dedede">.</span>Generic<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Linq<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Text<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">using</span> OSGi<span style="color:#dedede">.</span>NET<span style="color:#dedede">.</span>Core<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> OSGi<span style="color:#dedede">.</span>NET<span style="color:#dedede">.</span>Event<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> OSGi<span style="color:#dedede">.</span>NET<span style="color:#dedede">.</span>Service<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">using</span> ServiceContract<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">namespace</span> BundleDemoA
+<span style="color:#dedede">{</span>
+    <span style="color:#f0e68c">public class</span> BundleActivator <span style="color:#dedede">:</span> IBundleActivator
+    <span style="color:#dedede">{</span>
+
+        <span style="color:#f0e68c">private static readonly</span> log4net<span style="color:#dedede">.</span>ILog log <span style="color:#dedede">=</span> log4net<span style="color:#dedede">.</span>LogManager<span style="color:#dedede">.</span><span style="color:#f25252">GetLogger</span><span style="color:#dedede">(</span>System<span style="color:#dedede">.</span>Reflection<span style="color:#dedede">.</span>MethodBase<span style="color:#dedede">.</span><span style="color:#f25252">GetCurrentMethod</span><span style="color:#dedede">().</span>DeclaringType<span style="color:#dedede">);</span>
+
+        <span style="color:#f0e68c">private</span> IServiceRegistration serviceRegistration<span style="color:#dedede">;</span>
+
+        <span style="color:#ffa500">/// &lt;summary&gt;</span>
+        <span style="color:#ffa500">/// </span>
+        <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;context&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#f0e68c">public</span> <span style="color:#bdb66b">void</span> <span style="color:#f25252">Start</span><span style="color:#dedede">(</span>IBundleContext context<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+            context<span style="color:#dedede">.</span>ServiceChanged <span style="color:#dedede">+=</span> contextServiceChanged<span style="color:#dedede">;</span>
+            context<span style="color:#dedede">.</span>ExtensionChanged <span style="color:#dedede">+=</span> ContextOnExtensionChanged<span style="color:#dedede">;</span>
+            serviceRegistration <span style="color:#dedede">=</span> context<span style="color:#dedede">.</span>RegisterService<span style="color:#dedede">&lt;</span>IHelloWord<span style="color:#dedede">&gt;(</span><span style="color:#f0e68c">new</span> <span style="color:#f25252">BundleAHelloWord</span><span style="color:#dedede">());</span>
+        <span style="color:#dedede">}</span>
+
+        <span style="color:#ffa500">/// &lt;summary&gt;</span>
+        <span style="color:#ffa500">/// </span>
+        <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;sender&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;e&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#f0e68c">private</span> <span style="color:#bdb66b">void</span> <span style="color:#f25252">ContextOnExtensionChanged</span><span style="color:#dedede">(</span><span style="color:#bdb66b">object</span> sender<span style="color:#dedede">,</span> ExtensionEventArgs e<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+            var stateStr <span style="color:#dedede">=</span> <span style="color:#bdb66b">string</span><span style="color:#dedede">.</span>Empty<span style="color:#dedede">;</span>
+            <span style="color:#f0e68c">if</span> <span style="color:#dedede">(</span>e<span style="color:#dedede">.</span><span style="color:#f25252">GetState</span><span style="color:#dedede">() ==</span> ExtensionEventArgs<span style="color:#dedede">.</span>LOAD<span style="color:#dedede">)</span>
+            <span style="color:#dedede">{</span>
+                stateStr <span style="color:#dedede">=</span> <span style="color:#ffa0a0">&quot;Load&quot;</span><span style="color:#dedede">;</span>
+            <span style="color:#dedede">}</span>
+            <span style="color:#f0e68c">else if</span> <span style="color:#dedede">(</span>e<span style="color:#dedede">.</span><span style="color:#f25252">GetState</span><span style="color:#dedede">() ==</span> ExtensionEventArgs<span style="color:#dedede">.</span>UNLOAD<span style="color:#dedede">)</span>
+            <span style="color:#dedede">{</span>
+                stateStr <span style="color:#dedede">=</span> <span style="color:#ffa0a0">&quot;UnLoad&quot;</span><span style="color:#dedede">;</span>
+            <span style="color:#dedede">}</span>
+            var extensionStr <span style="color:#dedede">=</span> <span style="color:#f0e68c">new</span> <span style="color:#f25252">StringBuilder</span><span style="color:#dedede">();</span>
+            <span style="color:#f0e68c">foreach</span> <span style="color:#dedede">(</span>var xmlNode <span style="color:#f0e68c">in</span> e<span style="color:#dedede">.</span><span style="color:#f25252">GetExtensionData</span><span style="color:#dedede">().</span>ExtensionList<span style="color:#dedede">)</span>
+            <span style="color:#dedede">{</span>
+                extensionStr<span style="color:#dedede">.</span><span style="color:#f25252">Append</span><span style="color:#dedede">(</span>xmlNode<span style="color:#dedede">.</span>InnerXml<span style="color:#dedede">);</span>
+            <span style="color:#dedede">}</span>
+            log<span style="color:#dedede">.</span><span style="color:#f25252">Info</span><span style="color:#dedede">(</span><span style="color:#bdb66b">string</span><span style="color:#dedede">.</span><span style="color:#f25252">Format</span><span style="color:#dedede">(</span><span style="color:#ffa0a0">&quot;</span><span style="color:#8bc4d4">{0} {1} {2}</span> <span style="color:#ffa0a0">Extension</span> <span style="color:#8bc4d4">{3}</span><span style="color:#ffa0a0">&quot;</span><span style="color:#dedede">, ((</span>IBundle<span style="color:#dedede">)</span>sender<span style="color:#dedede">).</span><span style="color:#f25252">GetSymbolicName</span><span style="color:#dedede">(),</span> stateStr<span style="color:#dedede">,</span> e<span style="color:#dedede">.</span><span style="color:#f25252">GetExtensionPoint</span><span style="color:#dedede">().</span>Name<span style="color:#dedede">,</span> extensionStr<span style="color:#dedede">));</span>
+        <span style="color:#dedede">}</span>
+        <span style="color:#ffa500">/// &lt;summary&gt;</span>
+        <span style="color:#ffa500">/// </span>
+        <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;sender&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;e&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#bdb66b">void</span> <span style="color:#f25252">contextServiceChanged</span><span style="color:#dedede">(</span><span style="color:#bdb66b">object</span> sender<span style="color:#dedede">,</span> OSGi<span style="color:#dedede">.</span>NET<span style="color:#dedede">.</span>Event<span style="color:#dedede">.</span>ServiceEventArgs e<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+            log<span style="color:#dedede">.</span><span style="color:#f25252">Info</span><span style="color:#dedede">(</span><span style="color:#bdb66b">string</span><span style="color:#dedede">.</span><span style="color:#f25252">Format</span><span style="color:#dedede">(</span><span style="color:#ffa0a0">&quot;</span><span style="color:#8bc4d4">{0} {1}</span> <span style="color:#ffa0a0">Service</span> <span style="color:#8bc4d4">{2}</span><span style="color:#ffa0a0">&quot;</span><span style="color:#dedede">, ((</span>IBundle<span style="color:#dedede">)</span>sender<span style="color:#dedede">).</span><span style="color:#f25252">GetSymbolicName</span><span style="color:#dedede">(),</span> e<span style="color:#dedede">.</span><span style="color:#f25252">GetState</span><span style="color:#dedede">(),</span> <span style="color:#bdb66b">string</span><span style="color:#dedede">.</span><span style="color:#f25252">Join</span><span style="color:#dedede">(</span><span style="color:#ffa0a0">&quot;,&quot;</span><span style="color:#dedede">,</span> e<span style="color:#dedede">.</span><span style="color:#f25252">GetSercieContracts</span><span style="color:#dedede">())));</span>
+        <span style="color:#dedede">}</span>
+
+        <span style="color:#ffa500">/// &lt;summary&gt;</span>
+        <span style="color:#ffa500">/// </span>
+        <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;context&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#f0e68c">public</span> <span style="color:#bdb66b">void</span> <span style="color:#f25252">Stop</span><span style="color:#dedede">(</span>IBundleContext context<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+            serviceRegistration<span style="color:#dedede">.</span><span style="color:#f25252">Unregister</span><span style="color:#dedede">();</span>
+            context<span style="color:#dedede">.</span>ServiceChanged <span style="color:#dedede">-=</span> contextServiceChanged<span style="color:#dedede">;</span>
+            context<span style="color:#dedede">.</span>ExtensionChanged <span style="color:#dedede">-=</span> ContextOnExtensionChanged<span style="color:#dedede">;</span>
+        <span style="color:#dedede">}</span>
+    <span style="color:#dedede">}</span>
+<span style="color:#dedede">}</span>
+</pre>
+</p>
+</body>
+
+</html>

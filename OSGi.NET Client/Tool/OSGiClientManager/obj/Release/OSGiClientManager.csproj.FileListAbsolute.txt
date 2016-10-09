@@ -1,0 +1,6 @@
+E:\Work\OSGi.NET\Tool\OSGiClientManager\obj\Release\OSGiClientManager.csprojResolveAssemblyReference.cache
+E:\Work\OSGi.NET\Tool\OSGiClientManager\obj\Release\App.g.cs
+E:\Work\OSGi.NET\Tool\OSGiClientManager\obj\Release\OSGiClientManager_MarkupCompile.cache
+D:\Work\OSGi.NET\Tool\OSGiClientManager\obj\Release\OSGiClientManager.csprojResolveAssemblyReference.cache
+D:\Work\OSGi.NET\Tool\OSGiClientManager\obj\Release\App.g.cs
+D:\Work\OSGi.NET\Tool\OSGiClientManager\obj\Release\OSGiClientManager_MarkupCompile.cache

@@ -1,0 +1,14 @@
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\bin\Debug\BundleA.dll
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\bin\Debug\BundleA.pdb
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\bin\Debug\log4net.dll
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\bin\Debug\OSGi.NET.dll
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\bin\Debug\Mono.Cecil.dll
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\obj\Debug\UserControl1.baml
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\obj\Debug\UserControl1.g.cs
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\obj\Debug\BundleA_MarkupCompile.cache
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\obj\Debug\BundleA.g.resources
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\obj\Debug\BundleA.Properties.Resources.resources
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\obj\Debug\BundleA.csproj.GenerateResource.Cache
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\obj\Debug\BundleA.dll
+F:\Work\启明星\OSGi.NET\VsTemplate\MainApp\BundleA\obj\Debug\BundleA.pdb

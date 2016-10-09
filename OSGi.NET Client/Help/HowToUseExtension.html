@@ -1,0 +1,136 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type"/>
+    <title>如何使用扩展点</title>
+</head>
+
+<body>
+<h3>扩展点为OSGi.NET模块提供了灵活的扩展性。</h3>
+
+模块通过暴露扩展点提供扩展，这样其它模块可以实现对指定扩展点进行扩展然后来添加新的功能。被扩展的模块和扩展的模块通过扩展点建立关联。扩展点与扩展都是通过模块清单文件Manifest.xml定义。 扩展点通过ExtensionPoint节点来定义并指定Point属性（即扩展点名称）；扩展则通过Extension来定义，需要指定 Point属性即扩展点名称，并在子节点定义扩展的信息。暴露扩展点的模块通过IBundleContext来获取对指定扩展点 的扩展信息并监听扩展变更事件来动态更新扩展功能。<br/>
+<br/>
+1.模块A在程序集清单中定义扩展点WpfLeftMenu.TopMenuExtension<br/>
+
+<p style="background-color:#323232">
+<pre style="color:#dedede; background-color:#323232; font-size:10pt; font-family:'Courier New';"><span style="color:#f0e68c">&lt;?xml</span> <span style="color:#bdb66b">version</span>=<span style="color:#ffa0a0">&quot;1.0&quot;</span> <span style="color:#bdb66b">encoding</span>=<span style="color:#ffa0a0">&quot;utf-8&quot;</span><span style="color:#f0e68c">?&gt;</span>
+<span style="color:#f0e68c">&lt;Bundle</span> <span style="color:#bdb66b">AssemblyName</span>=<span style="color:#ffa0a0">&quot;WpfLeftMenu&quot;</span> <span style="color:#bdb66b">StartLevel</span>=<span style="color:#ffa0a0">&quot;1&quot;</span><span style="color:#f0e68c">&gt;</span>
+  <span style="color:#f0e68c">&lt;ExtensionPoint</span> <span style="color:#bdb66b">Point</span>=<span style="color:#ffa0a0">&quot;WpfLeftMenu.TopMenuExtension&quot;</span> <span style="color:#f0e68c">/&gt;</span>
+<span style="color:#f0e68c">&lt;/Bundle&gt;</span>
+</pre>
+</p>
+2.模块B在程序清单对扩展点WpfLeftMenu.TopMenuExtension进行扩展<br/>
+<p style="background-color:#323232">
+<pre style="color:#dedede; background-color:#323232; font-size:10pt; font-family:'Courier New';"><span style="color:#f0e68c">&lt;?xml</span> <span style="color:#bdb66b">version</span>=<span style="color:#ffa0a0">&quot;1.0&quot;</span> <span style="color:#bdb66b">encoding</span>=<span style="color:#ffa0a0">&quot;utf-8&quot;</span><span style="color:#f0e68c">?&gt;</span>
+<span style="color:#f0e68c">&lt;Bundle</span> <span style="color:#bdb66b">AssemblyName</span>=<span style="color:#ffa0a0">&quot;WpfTopMenuContent&quot;</span> <span style="color:#bdb66b">StartLevel</span>=<span style="color:#ffa0a0">&quot;3&quot;</span><span style="color:#f0e68c">&gt;</span>
+  <span style="color:#f0e68c">&lt;Extension</span> <span style="color:#bdb66b">Point</span>=<span style="color:#ffa0a0">&quot;WpfLeftMenu.TopMenuExtension&quot;</span><span style="color:#f0e68c">&gt;</span>
+    <span style="color:#f0e68c">&lt;Item</span> <span style="color:#bdb66b">Name</span>=<span style="color:#ffa0a0">&quot;菜单A&quot;</span><span style="color:#f0e68c">&gt;&lt;/Item&gt;</span>
+    <span style="color:#f0e68c">&lt;Item</span> <span style="color:#bdb66b">Name</span>=<span style="color:#ffa0a0">&quot;菜单B&quot;</span><span style="color:#f0e68c">&gt;&lt;/Item&gt;</span>
+    <span style="color:#f0e68c">&lt;Item</span> <span style="color:#bdb66b">Name</span>=<span style="color:#ffa0a0">&quot;菜单C&quot;</span><span style="color:#f0e68c">&gt;&lt;/Item&gt;</span>
+  <span style="color:#f0e68c">&lt;/Extension&gt;</span>
+<span style="color:#f0e68c">&lt;/Bundle&gt;</span>
+</pre>
+</p>
+3.在模块A中针对模块B的扩展信息进行支持，注册扩展变更事件，在其加载扩展信息时对其自身功能进行扩展，而在其扩展信息卸载时则移除相应功能<br/>
+
+<p style="background-color:#323232">
+<pre style="color:#dedede; background-color:#323232; font-size:10pt; font-family:'Courier New';"><span style="color:#f0e68c">using</span> System<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Collections<span style="color:#dedede">.</span>Generic<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Linq<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Text<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Windows<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> System<span style="color:#dedede">.</span>Xml<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">using</span> DevExpress<span style="color:#dedede">.</span>Xpf<span style="color:#dedede">.</span>NavBar<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">using</span> OSGi<span style="color:#dedede">.</span>NET<span style="color:#dedede">.</span>Core<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> OSGi<span style="color:#dedede">.</span>NET<span style="color:#dedede">.</span>Event<span style="color:#dedede">;</span>
+<span style="color:#f0e68c">using</span> OSGi<span style="color:#dedede">.</span>NET<span style="color:#dedede">.</span>Service<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">using</span> WpfServiceContract<span style="color:#dedede">;</span>
+
+<span style="color:#f0e68c">namespace</span> WpfLeftMenu
+<span style="color:#dedede">{</span>
+    <span style="color:#f0e68c">public class</span> BundleActivator <span style="color:#dedede">:</span> IBundleActivator
+    <span style="color:#dedede">{</span>
+
+        <span style="color:#f0e68c">private</span> IServiceRegistration serviceRegistration<span style="color:#dedede">;</span>
+        <span style="color:#f0e68c">public static</span> UserControl1 LeftMenu<span style="color:#dedede">;</span>
+
+        <span style="color:#f0e68c">public static</span> IBundleContext BundleContext<span style="color:#dedede">;</span>
+
+        <span style="color:#ffa500">/// &lt;summary&gt;</span>
+        <span style="color:#ffa500">/// </span>
+        <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;context&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#f0e68c">public</span> <span style="color:#bdb66b">void</span> <span style="color:#f25252">Start</span><span style="color:#dedede">(</span>IBundleContext context<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+
+            BundleContext <span style="color:#dedede">=</span> context<span style="color:#dedede">;</span>
+
+            LeftMenu <span style="color:#dedede">=</span> <span style="color:#f0e68c">new</span> <span style="color:#f25252">UserControl1</span><span style="color:#dedede">();</span>
+            context<span style="color:#dedede">.</span>ExtensionChanged <span style="color:#dedede">+=</span> ContextOnExtensionChanged<span style="color:#dedede">;</span>
+
+            serviceRegistration <span style="color:#dedede">=</span> context<span style="color:#dedede">.</span>RegisterService<span style="color:#dedede">&lt;</span>ILoadMenuView<span style="color:#dedede">&gt;(</span><span style="color:#f0e68c">new</span> <span style="color:#f25252">LoadMenuView</span><span style="color:#dedede">());</span>
+        <span style="color:#dedede">}</span>
+
+        
+        <span style="color:#ffa500">/// &lt;summary&gt;</span>
+        <span style="color:#ffa500">/// </span>
+        <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;context&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#f0e68c">public</span> <span style="color:#bdb66b">void</span> <span style="color:#f25252">Stop</span><span style="color:#dedede">(</span>IBundleContext context<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+            context<span style="color:#dedede">.</span>ExtensionChanged <span style="color:#dedede">-=</span> ContextOnExtensionChanged<span style="color:#dedede">;</span>
+            serviceRegistration<span style="color:#dedede">.</span><span style="color:#f25252">Unregister</span><span style="color:#dedede">();</span>
+        <span style="color:#dedede">}</span>
+
+        <span style="color:#ffa500">/// &lt;summary&gt;</span>
+        <span style="color:#ffa500">/// </span>
+        <span style="color:#ffa500">/// &lt;/summary&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;sender&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#ffa500">/// &lt;param name=&quot;e&quot;&gt;&lt;/param&gt;</span>
+        <span style="color:#f0e68c">private</span> <span style="color:#bdb66b">void</span> <span style="color:#f25252">ContextOnExtensionChanged</span><span style="color:#dedede">(</span><span style="color:#bdb66b">object</span> sender<span style="color:#dedede">,</span> ExtensionEventArgs e<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+            <span style="color:#f0e68c">if</span> <span style="color:#dedede">(</span>e<span style="color:#dedede">.</span><span style="color:#f25252">GetState</span><span style="color:#dedede">() ==</span> ExtensionEventArgs<span style="color:#dedede">.</span>LOAD<span style="color:#dedede">)</span>
+            <span style="color:#dedede">{</span>
+                <span style="color:#f0e68c">if</span> <span style="color:#dedede">(</span>e<span style="color:#dedede">.</span><span style="color:#f25252">GetExtensionData</span><span style="color:#dedede">().</span>Name <span style="color:#dedede">==</span> <span style="color:#ffa0a0">&quot;WpfLeftMenu.TopMenuExtension&quot;</span><span style="color:#dedede">)</span>
+                <span style="color:#dedede">{</span>
+                    LeftMenu<span style="color:#dedede">.</span>TopGroup<span style="color:#dedede">.</span>Items<span style="color:#dedede">.</span><span style="color:#f25252">Clear</span><span style="color:#dedede">();</span>
+                    <span style="color:#f0e68c">foreach</span> <span style="color:#dedede">(</span>XmlNode xmlNode <span style="color:#f0e68c">in</span> e<span style="color:#dedede">.</span><span style="color:#f25252">GetExtensionData</span><span style="color:#dedede">().</span>ExtensionList<span style="color:#dedede">)</span>
+                    <span style="color:#dedede">{</span>
+                        <span style="color:#f0e68c">foreach</span> <span style="color:#dedede">(</span>XmlNode childNode <span style="color:#f0e68c">in</span> xmlNode<span style="color:#dedede">.</span>ChildNodes<span style="color:#dedede">)</span>
+                        <span style="color:#dedede">{</span>
+                            <span style="color:#f0e68c">if</span> <span style="color:#dedede">(</span>childNode<span style="color:#dedede">.</span>Attributes <span style="color:#dedede">!=</span> <span style="color:#f0e68c">null</span> <span style="color:#dedede">&amp;&amp;</span> childNode<span style="color:#dedede">.</span>Attributes<span style="color:#dedede">[</span><span style="color:#ffa0a0">&quot;Name&quot;</span><span style="color:#dedede">] !=</span> <span style="color:#f0e68c">null</span><span style="color:#dedede">)</span>
+                            <span style="color:#dedede">{</span>
+                                var item <span style="color:#dedede">=</span> <span style="color:#f0e68c">new</span> NavBarItem <span style="color:#dedede">{</span> Content <span style="color:#dedede">=</span> childNode<span style="color:#dedede">.</span>Attributes<span style="color:#dedede">[</span><span style="color:#ffa0a0">&quot;Name&quot;</span><span style="color:#dedede">].</span>Value <span style="color:#dedede">};</span>
+                                item<span style="color:#dedede">.</span>Click <span style="color:#dedede">+=</span> ItemOnClick<span style="color:#dedede">;</span>
+                                LeftMenu<span style="color:#dedede">.</span>TopGroup<span style="color:#dedede">.</span>Items<span style="color:#dedede">.</span><span style="color:#f25252">Add</span><span style="color:#dedede">(</span>item<span style="color:#dedede">);</span>
+                            <span style="color:#dedede">}</span>
+                        <span style="color:#dedede">}</span>
+                    <span style="color:#dedede">}</span>
+                <span style="color:#dedede">}</span>
+            <span style="color:#dedede">}</span>
+            <span style="color:#f0e68c">else if</span> <span style="color:#dedede">(</span>e<span style="color:#dedede">.</span><span style="color:#f25252">GetState</span><span style="color:#dedede">() ==</span> ExtensionEventArgs<span style="color:#dedede">.</span>UNLOAD<span style="color:#dedede">)</span>
+            <span style="color:#dedede">{</span>
+                <span style="color:#f0e68c">if</span> <span style="color:#dedede">(</span>e<span style="color:#dedede">.</span><span style="color:#f25252">GetExtensionData</span><span style="color:#dedede">().</span>Name <span style="color:#dedede">==</span> <span style="color:#ffa0a0">&quot;WpfLeftMenu.TopMenuExtension&quot;</span><span style="color:#dedede">)</span>
+                <span style="color:#dedede">{</span>
+                    LeftMenu<span style="color:#dedede">.</span>TopGroup<span style="color:#dedede">.</span>Items<span style="color:#dedede">.</span><span style="color:#f25252">Clear</span><span style="color:#dedede">();</span>
+                <span style="color:#dedede">}</span>
+            <span style="color:#dedede">}</span>
+
+        <span style="color:#dedede">}</span>
+
+        <span style="color:#f0e68c">private</span> <span style="color:#bdb66b">void</span> <span style="color:#f25252">ItemOnClick</span><span style="color:#dedede">(</span><span style="color:#bdb66b">object</span> sender<span style="color:#dedede">,</span> EventArgs eventArgs<span style="color:#dedede">)</span>
+        <span style="color:#dedede">{</span>
+
+            var serviceRef <span style="color:#dedede">=</span> BundleContext<span style="color:#dedede">.</span>GetServiceReference<span style="color:#dedede">&lt;</span>IMenuItemEvent<span style="color:#dedede">&gt;();</span>
+            var servcie <span style="color:#dedede">=</span> BundleContext<span style="color:#dedede">.</span>GetService<span style="color:#dedede">&lt;</span>IMenuItemEvent<span style="color:#dedede">&gt;(</span>serviceRef<span style="color:#dedede">);</span>
+            servcie<span style="color:#dedede">.</span><span style="color:#f25252">FireEvent</span><span style="color:#dedede">(((</span>NavBarItem<span style="color:#dedede">)</span>sender<span style="color:#dedede">).</span>Content<span style="color:#dedede">.</span><span style="color:#f25252">ToString</span><span style="color:#dedede">());</span>
+        <span style="color:#dedede">}</span>
+    <span style="color:#dedede">}</span>
+<span style="color:#dedede">}</span>
+</pre>
+</p>
+</body>
+
+</html>
