@@ -84,4 +84,4 @@ OSGi.NET.properties为框架内核配置文件<br/>
 3.各Bundle下Libs目录程序集在加载中做了Bundle间的隔离，确保不同的Bundle引用的程序集间不会造成影响。即：如存在共享程序集请放置[/程序目录/Libs/]目录或在共享清单配置。<br/>
 <br/><br/>
 
-CHM: git:OSGi.NET Client\Help\Help\Documentation.chm
+CHM: https://github.com/FreezeSoul/OSGi.NET/blob/master/OSGi.NET%20Client/Help/Help/Documentation.chm?raw=true
