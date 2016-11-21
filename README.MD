@@ -1,5 +1,7 @@
 OSGi.NET Implement by FreezeSoul 2013.12.1
 
+Intro: http://www.diginfo.me/osgi-net-implement  
+
 </h3>
 OSGi.NET框架是一个参照了OSGi规范的模块化管理框架。框架为应用程序扩展（组件（bundle））提供了一个标准环境。整个框架可以划分为一些层次：
 <ul>
@@ -82,5 +84,4 @@ OSGi.NET.properties为框架内核配置文件<br/>
 3.各Bundle下Libs目录程序集在加载中做了Bundle间的隔离，确保不同的Bundle引用的程序集间不会造成影响。即：如存在共享程序集请放置[/程序目录/Libs/]目录或在共享清单配置。<br/>
 <br/><br/>
 
-Intro: http://www.diginfo.me/osgi-net-implement 
 CHM: git:OSGi.NET Client\Help\Help\Documentation.chm
