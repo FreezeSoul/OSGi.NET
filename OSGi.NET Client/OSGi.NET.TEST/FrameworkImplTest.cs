@@ -83,14 +83,14 @@ namespace OSGi.NET.TEST
         [TestMethod()]
         public void AssemblyResolverTest()
         {
-            var assemblyFileName = @"F:\Work\启明星\OSGi.NET\Sample\WPF\WpfDemo\bin\Debug\Libs\DevExpress.Images.v13.2.dll";
+            var assemblyFileName = @"F:\Work\***\OSGi.NET\Sample\WPF\WpfDemo\bin\Debug\Libs\DevExpress.Images.v13.2.dll";
 
             var readerParameter = new ReaderParameters()
             {
                 AssemblyResolver = new CustomAssemblyResolver(
                     filename =>
                     {
-                        var requestfilename = string.Format(@"F:\Work\启明星\OSGi.NET\Sample\WPF\WpfDemo\bin\Debug\Libs\{0}.dll", filename);
+                        var requestfilename = string.Format(@"F:\Work\***\OSGi.NET\Sample\WPF\WpfDemo\bin\Debug\Libs\{0}.dll", filename);
                         return AssemblyDefinition.ReadAssembly(requestfilename);
                     })
             };
@@ -171,7 +171,7 @@ namespace OSGi.NET.TEST
         [TestMethod()]
         public void AssemblyResoveTest()
         {
-            CurrentPath = @"F:\Work\启明星\OSGi.NET\OSGi.NET.TEST\bin\Debug\Test";
+            CurrentPath = @"F:\Work\***\OSGi.NET\OSGi.NET.TEST\bin\Debug\Test";
             CurrentVersion = "Version1";
             //调用版本1
             AssemblyLoadTest(CurrentVersion);
@@ -225,13 +225,13 @@ namespace OSGi.NET.TEST
         public void MonoAssemblyLoadTest()
         {
 
-            string[] files = Directory.GetFiles(@"F:\Work\启明星\visualdesktop\融合平台客户端\output", "Techstar.Framework.dll", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(@"F:\Work\***\output", "Techstar.Framework.dll", SearchOption.AllDirectories);
             var readerParameter = new ReaderParameters()
             {
                 AssemblyResolver = new CustomAssemblyResolver(
                     filename =>
                     {
-                        string[] findFiles = Directory.GetFiles(@"F:\Work\启明星\visualdesktop\融合平台客户端\output", string.Format("{0}.dll", filename), SearchOption.AllDirectories);
+                        string[] findFiles = Directory.GetFiles(@"F:\***\output", string.Format("{0}.dll", filename), SearchOption.AllDirectories);
                         if (findFiles.Length > 0)
                         {
                             try
@@ -294,7 +294,7 @@ namespace OSGi.NET.TEST
         public void PathConvertTest()
         {
             var path1 = @"..\..\..\Sample\WPF\WpfLeftMenu\bin\Debug\WpfLeftMenu.dll";
-            var path2 = @"F:\Work\启明星\OSGi.NET\Tool\OsgiDllTool\Release\";
+            var path2 = @"F:\Work\***\OSGi.NET\Tool\OsgiDllTool\Release\";
 
             Uri u1 = new Uri(path2);
             Uri u2 = new Uri(u1, path1);
