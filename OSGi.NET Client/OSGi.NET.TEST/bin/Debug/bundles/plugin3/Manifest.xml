@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Bundle Name="Plugin3" AssemblyName="StateGrid.Control.Designer.Plugin" StartLevel="2">
-  <Extension Point="OSGi.NET.Plugin1Extension">
-  </Extension>
-</Bundle>
