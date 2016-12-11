@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Bundle AssemblyName="BundleDemoB" StartLevel="2">
-  <Extension Point="BundleDemoA.ExtensionA">
-    <Item Name="菜单A"></Item>
-    <Item Name="菜单B"></Item>
-    <Item Name="菜单C"></Item>
-  </Extension>
-</Bundle>

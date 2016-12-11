@@ -1,2 +1,0 @@
-E:\Work\OSGi.NET\Sample\Console\BundleDemoA\obj\Release\BundleDemoA.csprojResolveAssemblyReference.cache
-D:\Work\OSGi.NET\Sample\Console\BundleDemoA\obj\Release\BundleDemoA.csprojResolveAssemblyReference.cache

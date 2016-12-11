@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Bundle AssemblyName="OSGiClientConnector" StartLevel="100">
-  <ServerIP Value="127.0.0.1"></ServerIP>
-  <ServerPort Value="10085"></ServerPort>
-</Bundle>

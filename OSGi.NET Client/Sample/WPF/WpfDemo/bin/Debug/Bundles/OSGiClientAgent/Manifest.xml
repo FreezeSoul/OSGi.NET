@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Bundle AssemblyName="OSGiClientAgent" StartLevel="100">
-  <ServerAddr Value="http://127.0.0.1:8080/"></ServerAddr>
-  <MonitorPort Value="9876"></MonitorPort>
-</Bundle>

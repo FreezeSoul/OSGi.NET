@@ -1,8 +1,0 @@
-E:\Work\OSGi.NET\Sample\Console\ServiceContract\bin\Release\ServiceContract.dll
-E:\Work\OSGi.NET\Sample\Console\ServiceContract\bin\Release\ServiceContract.pdb
-E:\Work\OSGi.NET\Sample\Console\ServiceContract\obj\Release\ServiceContract.dll
-E:\Work\OSGi.NET\Sample\Console\ServiceContract\obj\Release\ServiceContract.pdb
-D:\Work\OSGi.NET\Sample\Console\ServiceContract\bin\Release\ServiceContract.dll
-D:\Work\OSGi.NET\Sample\Console\ServiceContract\bin\Release\ServiceContract.pdb
-D:\Work\OSGi.NET\Sample\Console\ServiceContract\obj\Release\ServiceContract.dll
-D:\Work\OSGi.NET\Sample\Console\ServiceContract\obj\Release\ServiceContract.pdb

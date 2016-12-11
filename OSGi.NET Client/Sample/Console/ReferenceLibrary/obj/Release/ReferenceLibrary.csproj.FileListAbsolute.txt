@@ -1,9 +1,0 @@
-E:\Work\OSGi.NET\Sample\Console\ReferenceLibrary\bin\Release\ReferenceLibrary.dll
-E:\Work\OSGi.NET\Sample\Console\ReferenceLibrary\bin\Release\ReferenceLibrary.pdb
-E:\Work\OSGi.NET\Sample\Console\ReferenceLibrary\obj\Release\ReferenceLibrary.dll
-E:\Work\OSGi.NET\Sample\Console\ReferenceLibrary\obj\Release\ReferenceLibrary.pdb
-D:\Work\OSGi.NET\Sample\Console\ReferenceLibrary\bin\Release\ReferenceLibrary.dll
-D:\Work\OSGi.NET\Sample\Console\ReferenceLibrary\bin\Release\ReferenceLibrary.pdb
-D:\Work\OSGi.NET\Sample\Console\ReferenceLibrary\obj\Release\ReferenceLibrary.csprojResolveAssemblyReference.cache
-D:\Work\OSGi.NET\Sample\Console\ReferenceLibrary\obj\Release\ReferenceLibrary.dll
-D:\Work\OSGi.NET\Sample\Console\ReferenceLibrary\obj\Release\ReferenceLibrary.pdb

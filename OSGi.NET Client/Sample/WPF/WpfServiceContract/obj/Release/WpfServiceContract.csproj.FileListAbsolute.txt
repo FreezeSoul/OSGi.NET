@@ -1,6 +1,0 @@
-E:\Work\OSGi.NET\Sample\WPF\WpfServiceContract\bin\Release\WpfServiceContract.dll
-E:\Work\OSGi.NET\Sample\WPF\WpfServiceContract\bin\Release\WpfServiceContract.pdb
-E:\Work\OSGi.NET\Sample\WPF\WpfServiceContract\obj\Release\WpfServiceContract.Properties.Resources.resources
-E:\Work\OSGi.NET\Sample\WPF\WpfServiceContract\obj\Release\WpfServiceContract.csproj.GenerateResource.Cache
-E:\Work\OSGi.NET\Sample\WPF\WpfServiceContract\obj\Release\WpfServiceContract.dll
-E:\Work\OSGi.NET\Sample\WPF\WpfServiceContract\obj\Release\WpfServiceContract.pdb
