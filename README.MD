@@ -45,7 +45,6 @@ OSGi.NET框架是一个参照了OSGi规范的模块化管理框架。框架为�
             framework<span style="color:#dedede">.</span><span style="color:#f25252">Init</span><span style="color:#dedede">();</span>
             <span style="color:#ffa500">//启动框架</span>
             framework<span style="color:#dedede">.</span><span style="color:#f25252">Start</span><span style="color:#dedede">();</span>
-
             Console<span style="color:#dedede">.</span><span style="color:#f25252">ReadLine</span><span style="color:#dedede">();</span>
         <span style="color:#dedede">}</span>
     <span style="color:#dedede">}</span>
